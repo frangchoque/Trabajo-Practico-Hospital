@@ -1,6 +1,6 @@
 #pragma once
 #include "cPersonal.h"
-
+#include "enums.h"
 class cMedico :
     public cPersonal
 {

@@ -1,8 +1,11 @@
 #include "cPersonal.h"
 
 
-cPersonal::cPersonal() {
-
+cPersonal::cPersonal(string dni, cFecha fecha, string nom, string sexo) {
+	DNI = dni;
+	Fecha_nacimiento = fecha;
+	Nombre = nom;
+	Sexo = sexo;
 }
 
 

@@ -2,6 +2,8 @@
 #include "cIntervencion.h"
 #include "cPaciente.h"
 #include <string>
+#include "enums.h"
+#include  "cFecha.h"
 using namespace std;
 
 class cHistoriaClinica

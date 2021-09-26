@@ -1,12 +1,13 @@
 #pragma once
 
 #include <string>
+#include "cFecha.h"
 using namespace std;
 
 class cPersonal
 {
 public:
-	cPersonal();
+	cPersonal(string dni,cFecha fecha,string nom,string sexo);
 	virtual ~cPersonal();
 
 	void Imprimir();
