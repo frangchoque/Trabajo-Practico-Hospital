@@ -1,7 +1,11 @@
 #include "cIntervencion.h"
 
-cIntervencion::cIntervencion() {
+cIntervencion::cIntervencion(cFecha*FyH,cMedico* medico1) {
 
+	FechayHora = new cFecha(*FyH);
+	m_cMedico = medico1;
+	Diagnostico = "Todavia no hay diagnostico";
+	Monto = 0.0;
 }
 
 

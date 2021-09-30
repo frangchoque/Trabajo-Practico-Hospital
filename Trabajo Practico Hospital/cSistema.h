@@ -6,10 +6,12 @@ using namespace std;
 
 class cSistema
 {
-	cSistema();
-	virtual ~cSistema();
 	cPersonal* m_cPersonal;
 	cHistoriaClinica* m_cHistoriaClinica;
+public:
+	cSistema();
+	virtual ~cSistema();
+	
 
 	void AgregarHistoriaClinica(cPaciente* paciente);
 	void AñadirPersonal(cPersonal* personal);

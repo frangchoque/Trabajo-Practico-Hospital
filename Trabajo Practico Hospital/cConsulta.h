@@ -5,7 +5,7 @@ class cConsulta :
 {
 
 public:
-	cConsulta();
+	cConsulta(cFecha* FyH, cMedico* medico1,eProblema dolor);
 	~cConsulta();
 
 	void Imprimir();
@@ -14,5 +14,6 @@ public:
 
 private:
 	string Indicaciones;
+	eProblema Dolor;//para saber que indicaciones dar
 };
 

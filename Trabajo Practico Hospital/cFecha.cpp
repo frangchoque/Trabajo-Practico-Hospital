@@ -41,8 +41,8 @@ string cFecha::tm_to_string_Hora()
 {
 	return to_string(fecha.tm_hour) + " : " + to_string(fecha.tm_min);
 }
-cFecha::~cFecha()
-{
-}
-;
+//cFecha::~cFecha()
+//{
+//}
+//;
 

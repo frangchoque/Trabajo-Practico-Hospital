@@ -7,7 +7,7 @@ using namespace std;
 class cPersonal
 {
 public:
-	cPersonal(string dni,cFecha fecha,string nom,string sexo);
+	cPersonal(string dni,cFecha* fecha,string nom,string sexo);
 	virtual ~cPersonal();
 
 	void Imprimir();
@@ -15,7 +15,7 @@ public:
 
 protected:
 	string DNI;
-	cFecha Fecha_nacimiento;
+	cFecha*Fecha_nacimiento;
 	string Nombre;
 	string Sexo;
 

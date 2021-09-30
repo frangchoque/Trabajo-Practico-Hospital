@@ -8,7 +8,7 @@ class cEnfermero :
 {
 
 public:
-	cEnfermero(bool turno, string dni, cFecha fecha, string nom, string sexo);
+	cEnfermero(string dni, cFecha* fecha, string nom, string sexo,bool turno);
 	virtual ~cEnfermero();
 	string GenerarMatricula();
 	void AdministrarMedicamento();

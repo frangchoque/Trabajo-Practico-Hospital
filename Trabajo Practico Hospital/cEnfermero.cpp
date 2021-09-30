@@ -1,6 +1,6 @@
 #include "cEnfermero.h"
 
-cEnfermero::cEnfermero(bool turno, string dni, cFecha fecha, string nom, string sexo):Matricula(GenerarMatricula()):cPersonal(dni, fecha, nom, sexo) {
+cEnfermero::cEnfermero(string dni, cFecha* fecha, string nom, string sexo,bool turno):cPersonal(dni, fecha, nom, sexo),Matricula(GenerarMatricula()) {
 	Turno = turno;
 
 }

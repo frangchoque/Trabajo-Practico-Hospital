@@ -1,7 +1,9 @@
 #include "cMedicamento.h"
 
-cMedicamento::cMedicamento() {
-
+cMedicamento::cMedicamento(string Marca, string Nombre, cFecha* vencimiento) {
+	this->Marca = Marca;
+	this->Nombre=Nombre;
+	Vencimiento = vencimiento;
 }
 
 

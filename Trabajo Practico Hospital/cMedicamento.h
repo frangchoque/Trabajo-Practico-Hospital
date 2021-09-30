@@ -6,18 +6,18 @@ using namespace std;
 
 class cMedicamento
 {
-
+private:
+	string Marca;
+	string Nombre;
+	cFecha* Vencimiento;
 public:
-	cMedicamento();
+	cMedicamento(string Marca,string Nombre,cFecha*vencimiento);
 	~cMedicamento();
 
 	void Imprimir();
 	string to_string();
 
-private:
-	string Marca;
-	string Nombre;
-	cFecha Vencimiento;
+
 
 };
 

@@ -19,6 +19,6 @@ private:
 	void ImprimirHora();
 	string tm_to_string_Fecha();
 	string tm_to_string_Hora();
-	~cFecha();
+	//~cFecha();
 };
 

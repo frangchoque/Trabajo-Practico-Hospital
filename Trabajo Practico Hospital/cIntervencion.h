@@ -3,20 +3,21 @@
 
 class cIntervencion
 {
+protected:
+	string Diagnostico;
+	cFecha* FechayHora;
+	float Monto;
+	cMedico* m_cMedico;
 
 public:
-	cIntervencion();
+	cIntervencion(cFecha*FyH,cMedico*medico1);
 	virtual ~cIntervencion();
-	cMedico* m_cMedico;
+	
 
 	void Imprimir();
 	virtual void RealizarIntervencion();
 	string to_string();
 
-protected:
-	string Diagnostico;
-	cFecha FechayHora;
-	float Monto;
 
 };
 

@@ -4,8 +4,12 @@ class cPractica :
     public cIntervencion
 {
 
+private:
+	bool Autorizacion_Obra_social;
+	string Informe;
+
 public:
-	cPractica();
+	cPractica(cFecha* FyH, cMedico* medico1);
 	~cPractica();
 
 	void Imprimir();
@@ -13,9 +17,6 @@ public:
 	void RealizarIntervencion();
 	string to_string();
 
-private:
-	bool Autorizacion_Obra_social;
-	string Informe;
 
 };
 

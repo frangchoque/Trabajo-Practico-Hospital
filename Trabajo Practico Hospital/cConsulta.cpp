@@ -1,8 +1,9 @@
 #include "cConsulta.h"
 
 
-cConsulta::cConsulta() {
-
+cConsulta::cConsulta(cFecha* FyH, cMedico* medico1, eProblema dolor):cIntervencion(FyH,medico1) {
+	Dolor = dolor;
+	Indicaciones = "Todavia no hay indicaciones";
 }
 
 
@@ -27,5 +28,5 @@ void cConsulta::RealizarIntervencion() {
 
 string cConsulta::to_string() {
 
-	return  NULL;
+
 }

@@ -1,8 +1,9 @@
 #include "cPractica.h"
 
 
-cPractica::cPractica() {
-
+cPractica::cPractica(cFecha* FyH, cMedico* medico1):cIntervencion(FyH,medico1) {
+	Autorizacion_Obra_social = false;
+	Informe = "NADA";
 }
 
 

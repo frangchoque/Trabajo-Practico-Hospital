@@ -6,7 +6,7 @@ class cMedico :
 {
 
 public:
-	cMedico();
+	cMedico(string dni, cFecha* fecha, string nom, string sexo,int matricula,eEspecialidad especialidad_e);
 	virtual ~cMedico();
 
 	void AgregarIntervencion();
