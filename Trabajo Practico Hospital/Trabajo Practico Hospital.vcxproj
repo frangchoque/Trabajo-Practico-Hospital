@@ -160,6 +160,7 @@
     <ClInclude Include="cFecha.h" />
     <ClInclude Include="cHistoriaClinica.h" />
     <ClInclude Include="cIntervencion.h" />
+    <ClInclude Include="cListaT.h" />
     <ClInclude Include="cMedicamento.h" />
     <ClInclude Include="cMedico.h" />
     <ClInclude Include="cPaciente.h" />
