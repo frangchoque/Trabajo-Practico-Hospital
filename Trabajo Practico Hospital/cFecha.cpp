@@ -41,8 +41,26 @@ string cFecha::tm_to_string_Hora()
 {
 	return to_string(fecha.tm_hour) + " : " + to_string(fecha.tm_min);
 }
+int cFecha::CalcularEdad(cFecha* nacimiento )
+{
+	int dif = 0;
+	int anio = (nacimiento->fecha.tm_year);
+	time_t now = time(0);
+	tm* aux = localtime(&now); //obtengo el anio actual
+	dif = (aux->tm_year) - anio;
+	if (anio > aux->tm_year) { return -1;}
+
+}
 //cFecha::~cFecha()
 //{
 //}
 //;
 
+void cFecha::SetHoy()
+{
+	time_t now = time(0);
+	tm* aux = localtime(&now); //obtengo fecha actual
+	fecha.tm_mday = aux->tm_mday;
+	fecha.tm_mon = aux->tm_mon;
+	fecha.tm_year = aux->tm_year;
+}

@@ -8,6 +8,7 @@ cCirugia::cCirugia(cFecha* FyH, cMedico* medico1,cFecha* alta, cFecha* FyHinicio
 	Procedimiento = "NADA";
 	MedicoAdicional = medicoadicional;
 	Enfermero = enfermero;
+	
 }
 
 
@@ -26,6 +27,7 @@ void cCirugia::Imprimir() {
 
 
 void cCirugia::Prequirurgico(cPaciente* paciente) {
+
 
 }
 
