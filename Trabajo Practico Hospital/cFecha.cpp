@@ -41,13 +41,20 @@ string cFecha::tm_to_string_Hora()
 {
 	return to_string(fecha.tm_hour) + " : " + to_string(fecha.tm_min);
 }
-int cFecha::CalcularEdad(cFecha* nacimiento )
+int cFecha::CalcularEdad(cFecha* nacimiento)
 {
 	int dif = 0;
 	int anio = (nacimiento->fecha.tm_year);
 	time_t now = time(0);
 	tm* aux = localtime(&now); //obtengo el anio actual
-	dif = (aux->tm_year) - anio;
+	if (nacimiento->fecha.tm_mon < aux->tm_mon)
+	{
+		dif = (aux->tm_year) - anio;
+		return dif;
+	}
+	else { dif = (aux->tm_year) - anio;
+	return dif - 1;//todavia no cumplio anios
+	}
 	if (anio > aux->tm_year) { return -1;}
 
 }
