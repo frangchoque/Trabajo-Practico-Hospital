@@ -1,15 +1,19 @@
 #pragma once
 #include "cPersonal.h"
 #include "cHistoriaClinica.h"
+#include "cListaT.h"
 #include <string>
 using namespace std;
 
 class cSistema
 {
-	cPersonal* m_cPersonal;
-	cHistoriaClinica* m_cHistoriaClinica;
+	//cPersonal* m_cPersonal;
+	//cHistoriaClinica* m_cHistoriaClinica;
+	ListaT<cHistoriaClinica>* L_cHistoriaClinica;
+	ListaT<cPersonal>* L_cPersonal;
+
 public:
-	cSistema();
+	cSistema(ListaT<cHistoriaClinica>*lista_HistClinicas,ListaT<cPersonal>*lista_Personal);
 	virtual ~cSistema();
 	
 

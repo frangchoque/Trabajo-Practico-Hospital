@@ -1,8 +1,17 @@
 #include "cSistema.h"
 
 
-cSistema::cSistema() {
+cSistema::cSistema(ListaT<cHistoriaClinica>* lista_HistClinicas, ListaT<cPersonal>* lista_Personal) {
 
+	if (lista_HistClinicas != NULL) {
+		L_cHistoriaClinica = lista_HistClinicas;
+	}
+	else L_cHistoriaClinica = new ListaT<cHistoriaClinica>();
+	if (lista_HistClinicas != NULL) {
+		L_cPersonal= lista_Personal;
+	}
+	else 	L_cPersonal = new ListaT<cPersonal>();
+	
 }
 
 

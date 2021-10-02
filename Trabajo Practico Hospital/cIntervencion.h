@@ -15,7 +15,7 @@ public:
 	
 
 	void Imprimir();
-	virtual void RealizarIntervencion();
+	virtual void RealizarIntervencion()=0;
 	string to_string();
 
 

@@ -4,33 +4,37 @@
 #include <string>
 #include "enums.h"
 #include  "cFecha.h"
+#include "cListaT.h"
 using namespace std;
 
 class cHistoriaClinica
 {
-
-public:
-	cHistoriaClinica();
-	virtual ~cHistoriaClinica();
-	cIntervencion* m_cIntervencion;
-	cPaciente* m_cPaciente;
-
-	void Imprimir();
-	string to_string();
-
 private:
 	/**
 	 * si no esta afiliado, no tiene numero de afiliado
 	 */
-	bool Afiliado;
+	//bool Afiliado;
 	static unsigned int Contador;
-	const string DNI;
-	const cFecha Fecha_nacimiento;
+	//const string DNI;
+	//const cFecha Fecha_nacimiento;
 	const unsigned int ID;
 	bool Internado;
-	string Nombre;
-	unsigned int Numero_afiliado;
-	eObraSocial Obra_social;
-	string Sexo;
+	//string Nombre;
+	//unsigned int Numero_afiliado;
+	//eObraSocial Obra_social;
+	//string Sexo;
+	cPaciente* m_paciente;//asi tiene toda la infromacion del paciente
+	cIntervencion* m_cIntervencion;
+	ListaT<cIntervencion>* L_intervenciones;
+	
+public:
+	cHistoriaClinica(cPaciente* paciente,cIntervencion*intervencion,bool internacion);
+	virtual ~cHistoriaClinica();
+	
+
+	void Imprimir();
+	string to_string();
+
+
 };
 
