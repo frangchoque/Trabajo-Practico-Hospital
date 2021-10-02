@@ -26,6 +26,11 @@ public:
 	void Imprimir();
 	string to_string();
 	void GenerarValores_HematocritoySaturacion();
+	int getEdad();
+	char getSexo();
+	int getSaturacion();
+	int getValor_Hematocrito();
+	bool getAyuno();
 
 };
 

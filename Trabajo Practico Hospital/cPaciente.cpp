@@ -46,3 +46,28 @@ void cPaciente::GenerarValores_HematocritoySaturacion()
 	else { Saturacion = FuncionRand(100, 95);}
 }
 
+int cPaciente::getEdad()
+{
+	return Edad;
+}
+
+char cPaciente::getSexo()
+{
+	return Sexo;
+}
+
+int cPaciente::getSaturacion()
+{
+	return Saturacion;
+}
+
+int cPaciente::getValor_Hematocrito()
+{
+	return valor_hematocrito;
+}
+
+bool cPaciente::getAyuno()
+{
+	return Ayunas;
+}
+

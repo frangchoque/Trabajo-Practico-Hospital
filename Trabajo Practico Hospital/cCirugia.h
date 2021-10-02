@@ -24,7 +24,7 @@ public:
 
 	void Imprimir();
 	void Prequirurgico(cPaciente* paciente);
-	void RealizarIntervencion();
+	void RealizarIntervencion(cPaciente* paciente);
 	string to_string();
 
 

@@ -23,7 +23,7 @@ void cIntervencion::Imprimir() {
 }
 
 
-void cIntervencion::RealizarIntervencion() {
+void cIntervencion::RealizarIntervencion(cPaciente* paciente) {
 
 }
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "cMedico.h"
-
+class cPaciente;
 class cIntervencion
 {
 protected:
@@ -15,7 +15,7 @@ public:
 	
 
 	void Imprimir();
-	virtual void RealizarIntervencion()=0;
+	virtual void RealizarIntervencion(cPaciente* paciente)=0;
 	string to_string();
 
 
