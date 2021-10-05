@@ -19,5 +19,6 @@ public:
 private:
 	const string Matricula;
 	bool Turno;//true=dia false=noche
+
 };
 

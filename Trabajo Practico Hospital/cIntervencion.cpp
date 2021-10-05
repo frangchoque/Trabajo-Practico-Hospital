@@ -30,5 +30,5 @@ void cIntervencion::RealizarIntervencion(cPaciente* paciente) {
 
 string cIntervencion::to_string() {
 
-	return  NULL;
+
 }

@@ -18,9 +18,6 @@ cCirugia::~cCirugia() {
 }
 
 
-
-
-
 void cCirugia::Imprimir() {
 
 }
