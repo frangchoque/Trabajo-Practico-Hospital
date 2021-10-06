@@ -25,7 +25,7 @@ class cFecha
 	int getAnio();
 
 	~cFecha();
-	int CalcularEdad(cFecha*nacimiento);
+	//int CalcularEdad(cFecha* nacimiento);
 	void SetHoy();
 	//~cFecha();
 };

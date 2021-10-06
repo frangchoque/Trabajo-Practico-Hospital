@@ -2,6 +2,7 @@
 
 cMedico::cMedico(string dni, cFecha* fecha, string nom, string sexo,int matricula,eEspecialidad especialidad_e):cPersonal(dni, fecha, nom, sexo), Matricula(matricula) {
 	especialidad = especialidad_e;
+	Registro = NULL;
 }
 
 cMedico::~cMedico() {
@@ -9,12 +10,15 @@ cMedico::~cMedico() {
 }
 
 void cMedico::AgregarIntervencion() {
-
+	
 }
 
 
-void cMedico::DarAlta(cHistoriaClinica* Historia_clinica) {
-	Historia_clinica->setAlta();
+void cMedico::DarAlta() {
+	Registro->setAlta();
+	
+	Registro = NULL;
+
 }
 
 
@@ -23,8 +27,8 @@ void cMedico::Imprimir() {
 }
 
 
-void cMedico::Internar_paciente(cHistoriaClinica* Historia_clinica) {
-	Historia_clinica->setInternado();
+void cMedico::Internar_paciente() {
+	Registro->setInternado();
 }
 
 

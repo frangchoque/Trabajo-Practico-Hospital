@@ -12,14 +12,15 @@ public:
 	~cMedico();
 
 	void AgregarIntervencion();
-	void DarAlta(cHistoriaClinica* Historia_clinica);
+	void DarAlta();
 	void Imprimir();
-	void Internar_paciente(cHistoriaClinica* Historia_clinica);
+	void Internar_paciente();
 	void ModificarIndicaciones();
 	string to_string();
 
 private:
 	eEspecialidad especialidad;
 	const unsigned int Matricula;
+	cHistoriaClinica* Registro;
 };
 

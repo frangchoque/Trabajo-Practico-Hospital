@@ -32,7 +32,7 @@ void cEnfermero::AdministrarMedicamento(cMedicamento* medicamento) {
 	}
 	catch (exception* error)
 	{
-
+		throw error;// Que lo controle en la cirujia
 	}
 
 }
@@ -45,7 +45,7 @@ void cEnfermero::Imprimir() {
 
 string cEnfermero::to_string() {
 
-	string aux = "\nTurno: " + Turno_to_string() + "\nMatricula: " + Matricula;//Rehacer para que imprima lo del padre
+	string aux =((cPersonal*)this)->to_string() + "\nTurno: " + Turno_to_string() + "\nMatricula: " + Matricula;//Rehacer para que imprima lo del padre
 	return aux;
 }
 

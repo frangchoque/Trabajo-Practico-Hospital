@@ -5,8 +5,8 @@
 #include <string>
 using namespace std;
 
-class cSistema
-{
+class cSistema//Hacer ingreso paciente que reciba un paciente, busque el historial del paciente, le asigne un médico, el medico lo vea, diagnostique 
+{//Lo trate, agregue la intervencion a la lista y lo saque
 	//cPersonal* m_cPersonal;
 	//cHistoriaClinica* m_cHistoriaClinica;
 	ListaT<cHistoriaClinica>L_cHistoriaClinica;

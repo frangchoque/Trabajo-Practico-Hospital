@@ -10,16 +10,26 @@ cPaciente::cPaciente(bool afiliado, string nombre, cFecha* nacimiento, eObraSoci
 	DNI = dni;
 	Sexo = sexo;
 	Problema = problema;
-	this->Numero_afiliado = 0;
+	this->Numero_afiliado = NumeroAfiliado();
 	Ayunas = ayunas;
 	GenerarValores_HematocritoySaturacion();
-	Edad = CalcularEdad(nacimiento);//no se porque no lo toma
+	Edad = CalcularEdad(nacimiento);
 }
 
 
 
 cPaciente::~cPaciente() {
 
+}
+
+unsigned int cPaciente::NumeroAfiliado()
+{
+	unsigned int random;
+	if (Afiliado)
+	{
+		random = FuncionRand(1000, 1);
+	}
+	return 0;
 }
 
 
@@ -69,5 +79,23 @@ int cPaciente::getValor_Hematocrito()
 bool cPaciente::getAyuno()
 {
 	return Ayunas;
+}
+
+int cPaciente::CalcularEdad(cFecha* nacimiento)
+{
+	int dif = 0;
+	int anio = (nacimiento->getAnio());
+	time_t now = time(0);
+	tm* aux = localtime(&now); //obtengo el anio actual
+	if (nacimiento->getMes() < aux->tm_mon)
+	{
+		dif = (aux->tm_year) - anio;
+		return dif;
+	}
+	else {
+		dif = (aux->tm_year) - anio;
+		return dif - 1;//todavia no cumplio anios
+	}
+	if (anio > aux->tm_year) { return -1; }
 }
 

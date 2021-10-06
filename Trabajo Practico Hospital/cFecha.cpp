@@ -57,7 +57,7 @@ cFecha::~cFecha()
 {
 
 }
-int cFecha::CalcularEdad(cFecha* nacimiento)
+/*int cFecha::CalcularEdad(cFecha* nacimiento)
 {
 	int dif = 0;
 	int anio = (nacimiento->fecha.tm_year);
@@ -73,7 +73,7 @@ int cFecha::CalcularEdad(cFecha* nacimiento)
 	}
 	if (anio > aux->tm_year) { return -1;}
 
-}
+}*/
 //cFecha::~cFecha()
 //{
 //}
