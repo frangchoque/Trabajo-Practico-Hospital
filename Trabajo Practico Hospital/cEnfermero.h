@@ -25,6 +25,6 @@ private:
 	const string Matricula;
 	bool Turno;//true=dia false=noche
 
-	static ListaT<cMedicamento>* Inventario;//Hago una lista estatica porque todos los enfermeros pueden acceder a ella
+	static ListaT<cMedicamento>* Inventario;//Hago una lista static para que todos los enfermeros pueden acceder a ella
 };
 

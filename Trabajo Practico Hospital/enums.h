@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+using namespace std;
 
 enum class eObraSocial {DEF=0, CBA, HIG,OSDE}typedef ObraSocial;
 
@@ -12,3 +14,6 @@ int FuncionRand(int max, int min) {
 
 	return rand() % (max - min) - min;
 };
+
+string Especialidad_to_string(Especialidad esp);
+

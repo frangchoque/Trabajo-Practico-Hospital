@@ -28,7 +28,7 @@ void cEnfermero::AdministrarMedicamento(cMedicamento* medicamento) {
 	//Hacer que en la operacion se lo pidan y si esta vencido busque otro, o que cancele todo
 	try
 	{
-		Verificar_vencimiento();
+		Verificar_vencimiento(medicamento);
 	}
 	catch (exception* error)
 	{
