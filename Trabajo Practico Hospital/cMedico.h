@@ -1,7 +1,7 @@
 #pragma once
 #include "cPersonal.h"
 #include "enums.h"
-#include "cPaciente.h"
+#include "cHistoriaClinica.h"
 
 class cMedico :
     public cPersonal
@@ -9,12 +9,12 @@ class cMedico :
 
 public:
 	cMedico(string dni, cFecha* fecha, string nom, string sexo,int matricula,eEspecialidad especialidad_e);
-	virtual ~cMedico();
+	~cMedico();
 
 	void AgregarIntervencion();
-	void DarAlta(cPaciente* paciente);
+	void DarAlta(cHistoriaClinica* Historia_clinica);
 	void Imprimir();
-	void Internar_paciente(cPaciente* paciente);
+	void Internar_paciente(cHistoriaClinica* Historia_clinica);
 	void ModificarIndicaciones();
 	string to_string();
 

@@ -16,6 +16,16 @@ cHistoriaClinica::~cHistoriaClinica() {
 
 }
 
+void cHistoriaClinica::setInternado()
+{
+	Internado = true;
+}
+
+void cHistoriaClinica::setAlta()
+{
+	Internado = false;
+}
+
 
 
 

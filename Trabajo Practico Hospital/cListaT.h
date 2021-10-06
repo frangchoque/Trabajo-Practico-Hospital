@@ -25,6 +25,7 @@ public:
 	int getPos(unsigned int ID);
 
 	T* operator[](unsigned int pos);
+	void operator+(T* nuevo);
 };
 
 template<class T>
@@ -168,4 +169,10 @@ template<class T>
 inline T* ListaT<T>::operator[](unsigned int pos)
 {
 	return Buscar_por_pos(pos);
+}
+
+template<class T>
+inline void ListaT<T>::operator+(T* nuevo)
+{
+	Agregar(nuevo);
 }

@@ -30,7 +30,8 @@ private:
 public:
 	cHistoriaClinica(cPaciente* paciente,cIntervencion*intervencion,bool internacion);
 	virtual ~cHistoriaClinica();
-	
+	void setInternado();
+	void setAlta();
 
 	void Imprimir();
 	string to_string();

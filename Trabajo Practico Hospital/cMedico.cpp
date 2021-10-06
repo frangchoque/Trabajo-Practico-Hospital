@@ -13,8 +13,8 @@ void cMedico::AgregarIntervencion() {
 }
 
 
-void cMedico::DarAlta(cPaciente* paciente) {
-	
+void cMedico::DarAlta(cHistoriaClinica* Historia_clinica) {
+	Historia_clinica->setAlta();
 }
 
 
@@ -23,8 +23,8 @@ void cMedico::Imprimir() {
 }
 
 
-void cMedico::Internar_paciente(cPaciente* paciente) {
-
+void cMedico::Internar_paciente(cHistoriaClinica* Historia_clinica) {
+	Historia_clinica->setInternado();
 }
 
 
