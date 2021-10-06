@@ -8,7 +8,7 @@ using namespace std;
 class cFecha
 {
 	tm fecha;
-public:
+ public:
 	//constructor de inicio en la fecha y hora actual
 	cFecha();
 	//constructor de inicio con dia mes, anio y la hora
@@ -25,5 +25,8 @@ public:
 	int getAnio();
 
 	~cFecha();
+	int CalcularEdad(cFecha*nacimiento);
+	void SetHoy();
+	//~cFecha();
 };
 

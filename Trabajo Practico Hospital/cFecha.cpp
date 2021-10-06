@@ -57,5 +57,33 @@ cFecha::~cFecha()
 {
 
 }
+int cFecha::CalcularEdad(cFecha* nacimiento)
+{
+	int dif = 0;
+	int anio = (nacimiento->fecha.tm_year);
+	time_t now = time(0);
+	tm* aux = localtime(&now); //obtengo el anio actual
+	if (nacimiento->fecha.tm_mon < aux->tm_mon)
+	{
+		dif = (aux->tm_year) - anio;
+		return dif;
+	}
+	else { dif = (aux->tm_year) - anio;
+	return dif - 1;//todavia no cumplio anios
+	}
+	if (anio > aux->tm_year) { return -1;}
 
+}
+//cFecha::~cFecha()
+//{
+//}
+//;
 
+void cFecha::SetHoy()
+{
+	time_t now = time(0);
+	tm* aux = localtime(&now); //obtengo fecha actual
+	fecha.tm_mday = aux->tm_mday;
+	fecha.tm_mon = aux->tm_mon;
+	fecha.tm_year = aux->tm_year;
+}
