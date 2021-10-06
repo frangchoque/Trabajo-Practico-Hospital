@@ -13,8 +13,8 @@ public:
 	~cPractica();
 
 	void Imprimir();
-	void PedirAutorizacion();
-	void RealizarIntervencion();
+	void PedirAutorizacion(cPaciente* paciente);
+	void RealizarIntervencion(cPaciente* paciente);
 	string to_string();
 
 

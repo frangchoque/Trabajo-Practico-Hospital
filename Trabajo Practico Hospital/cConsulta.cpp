@@ -1,32 +1,31 @@
 #include "cConsulta.h"
 
 
-cConsulta::cConsulta(cFecha* FyH, cMedico* medico1, eProblema dolor):cIntervencion(FyH,medico1) {
-	Dolor = dolor;
+cConsulta::cConsulta(cFecha* FyH, cMedico* medico):cIntervencion(FyH,medico) {
 	Indicaciones = "Todavia no hay indicaciones";
 }
-
-
 
 cConsulta::~cConsulta() {
 
 }
 
-
-
-
-
-void cConsulta::Imprimir() {
-
+void cConsulta::RealizarIntervencion(cPaciente* paciente) {
+	if (paciente->getProblema()::Fiebre)
+	{
+		Indicaciones = "Tomar Paracetamol";
+	}
+	else if (paciente->getProblema()::Tos)
+	{
+		Indicaciones = "Beber te con miel y guarar reposo";
+	}
+	
 }
-
-
-void cConsulta::RealizarIntervencion() {
-
-}
-
 
 string cConsulta::to_string() {
 
+
+}
+
+void cConsulta::Imprimir() {
 
 }

@@ -3,17 +3,18 @@
 class cConsulta :
     public cIntervencion
 {
-
-public:
-	cConsulta(cFecha* FyH, cMedico* medico1,eProblema dolor);
-	~cConsulta();
-
-	void Imprimir();
-	void RealizarIntervencion();
-	string to_string();
-
 private:
 	string Indicaciones;
-	eProblema Dolor;//para saber que indicaciones dar
+	//eProblema Dolor;//para saber que indicaciones dar
+
+public:
+	cConsulta(cFecha* FyH, cMedico* medico);
+	~cConsulta();
+
+	
+	void RealizarIntervencion(cPaciente* paciente);
+	string to_string();
+	void Imprimir();
+
 };
 

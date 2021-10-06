@@ -13,25 +13,24 @@ cPractica::~cPractica() {
 }
 
 
+void cPractica::PedirAutorizacion(cPaciente* paciente) {
+	if(paciente->getObra_Social()::)
 
 
-
-void cPractica::Imprimir() {
 
 }
 
 
-void cPractica::PedirAutorizacion() {
-
-}
-
-
-void cPractica::RealizarIntervencion() {
-
+void cPractica::RealizarIntervencion(cPaciente* paciente) {
+	
 }
 
 
 string cPractica::to_string() {
 
 	return  NULL;
+}
+
+void cPractica::Imprimir() {
+
 }

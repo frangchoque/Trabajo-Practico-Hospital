@@ -20,7 +20,7 @@ private:
 	int valor_hematocrito;
 	int Saturacion;
 public:
-	cPaciente(bool afiliado,string nombre,cFecha*nacimiento,eObraSocial obra_social,string dni,char sexo,eProblema problema,bool ayunas);
+	cPaciente(bool afiliado, string nombre, cFecha* nacimiento, eObraSocial obra_social, string dni, char sexo, eProblema problema, bool ayunas);
 	virtual ~cPaciente();
 	unsigned int NumeroAfiliado();//si esta afiliado le asigna un numero de afiliado
 	void Imprimir();
@@ -32,6 +32,8 @@ public:
 	int getValor_Hematocrito();
 	bool getAyuno();
 	int CalcularEdad(cFecha* nacimiento);
-	//Calcular edad devuelve un int
+	eProblema getProblema() { return Problema; };
+	eObraSocial getObra() { return Obra_social; };
 };
+	//Calcular edad devuelve un int
 
