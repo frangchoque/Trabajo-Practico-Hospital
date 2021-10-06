@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include "cFecha.h"
+#include <string>
 using namespace std;
 
 class cPersonal
@@ -15,9 +15,8 @@ public:
 
 protected:
 	string DNI;
-	cFecha*Fecha_nacimiento;
+	cFecha* Fecha_nacimiento;
 	string Nombre;
 	string Sexo;
-
 };
 

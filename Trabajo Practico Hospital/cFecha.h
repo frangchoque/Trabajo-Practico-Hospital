@@ -1,13 +1,14 @@
 #pragma once
 #include <time.h>
+#include <string>
 #include <iostream>
-#include <sstream>
 
 using namespace std;
+
 class cFecha
 {
 	tm fecha;
-private:
+public:
 	//constructor de inicio en la fecha y hora actual
 	cFecha();
 	//constructor de inicio con dia mes, anio y la hora
@@ -19,6 +20,10 @@ private:
 	void ImprimirHora();
 	string tm_to_string_Fecha();
 	string tm_to_string_Hora();
-	//~cFecha();
+	int getDia();
+	int getMes();
+	int getAnio();
+
+	~cFecha();
 };
 

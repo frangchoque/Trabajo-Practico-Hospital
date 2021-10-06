@@ -2,6 +2,9 @@
 #include <ctime>
 #include "cPersonal.h"
 #include "cMedicamento.h"
+#include "cListaT.h"
+
+
 using namespace std;
 class cEnfermero :
     public cPersonal
@@ -9,15 +12,19 @@ class cEnfermero :
 
 public:
 	cEnfermero(string dni, cFecha* fecha, string nom, string sexo,bool turno);
-	virtual ~cEnfermero();
+	~cEnfermero();
 	string GenerarMatricula();
-	void AdministrarMedicamento();
+	void AdministrarMedicamento(cMedicamento* medicamento);
 	void Imprimir();
 	string to_string();
 	void Verificar_vencimiento(cMedicamento* medicamento);
+	string Turno_to_string();
+	static ListaT<cMedicamento>* getInventario();
 
 private:
 	const string Matricula;
 	bool Turno;//true=dia false=noche
+
+	static ListaT<cMedicamento>* Inventario;//Hago una lista estatica porque todos los enfermeros pueden acceder a ella
 };
 

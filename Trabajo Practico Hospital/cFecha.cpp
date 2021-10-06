@@ -35,14 +35,27 @@ void cFecha::ImprimirHora()
 }
 string cFecha::tm_to_string_Fecha()
 {
-	return to_string(fecha.tm_mday) + " / " + to_string(fecha.tm_mon + 1) + " / " + to_string(fecha.tm_year + 1900);
+	return std::to_string(fecha.tm_mday) + " / " + std::to_string(fecha.tm_mon + 1) + " / " + std::to_string(fecha.tm_year + 1900);
 }
 string cFecha::tm_to_string_Hora()
 {
-	return to_string(fecha.tm_hour) + " : " + to_string(fecha.tm_min);
+	return std::to_string(fecha.tm_hour) + " : " + std::to_string(fecha.tm_min);
 }
-//cFecha::~cFecha()
-//{
-//}
-//;
+int cFecha::getDia()
+{
+	return fecha.tm_mday;
+}
+int cFecha::getMes()
+{
+	return fecha.tm_mon;
+}
+int cFecha::getAnio()
+{
+	return fecha.tm_year;
+}
+cFecha::~cFecha()
+{
+
+}
+
 
