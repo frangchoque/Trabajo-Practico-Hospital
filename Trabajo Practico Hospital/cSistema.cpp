@@ -67,11 +67,10 @@ void cSistema::ImprimirProcedimientos(cMedico* medico, cFecha fecha) {
 
 void cSistema::AgregarIntervencion_al_Historial(cIntervencion* intervencion, cPaciente* paciente)
 {
-	
-	for (int i = 0; i < historial->getCA(); i++)
-	{
-		
-	}
+	cLista_HIstorias_Clinicas* aux;
+	cLista_HIstorias_Clinicas* aux1;
+	aux1=aux->BuscarHistoriaClinica(paciente);
+
 }
 
 
