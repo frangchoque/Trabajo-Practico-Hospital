@@ -9,6 +9,9 @@ public:
 	~cLista_HIstorias_Clinicas();
 	template <class tipoIntervencion>
 	void ListarIntervenciones();//lista las intervenciones por grupo
+	template<class historial_pacientes>
+	cHistoriaClinica* BuscarHistoriaClinica(cPaciente*paciente);
+
 
 };
 

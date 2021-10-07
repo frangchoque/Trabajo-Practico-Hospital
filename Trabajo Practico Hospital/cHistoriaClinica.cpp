@@ -26,6 +26,11 @@ void cHistoriaClinica::setAlta()
 	Internado = false;
 }
 
+cPaciente* cHistoriaClinica::getPaciente()
+{
+	return m_paciente;
+}
+
 
 
 

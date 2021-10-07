@@ -9,7 +9,6 @@ class cPersonal
 public:
 	cPersonal(string dni,cFecha fecha,string nom,string sexo);
 	virtual ~cPersonal();
-
 	void Imprimir();
 	string to_string();
 

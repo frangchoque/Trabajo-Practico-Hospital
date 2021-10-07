@@ -1,24 +1,38 @@
 #include "cSistema.h"
 
 
-cSistema::cSistema() {
+cSistema::cSistema(cLista_HIstorias_Clinicas* lista_historial, ListaT<cPersonal>* lista_personal) {
 
-	Lista_Historias_Clinicas = new ListaT<cHistoriaClinica>();
-	Lista_Personal = new ListaT<cPersonal>();
 	
+	if (lista_personal != NULL)
+		Lista_Personal = lista_personal;
+	else
+	Lista_Personal = new ListaT<cPersonal>();
 }
 
 
 
 cSistema::~cSistema() {
-	delete Lista_Historias_Clinicas;
+
 	delete Lista_Personal;
 }
 
 
-void cSistema::AgregarHistoriaClinica(cPaciente* paciente) {
+void cSistema::IngresarPaciente(cPaciente* paciente)
+{
+	cMedico* aux;
+	if (paciente != NULL) {
 	
+		//retorna un medico libre
+		for (int i = 0; i < Lista_Personal->getCA(); i++)
+		{
+			
+		}
+		
+	}
+
 }
+
 
 
 void cSistema::AñadirPersonal(cPersonal* personal) {
@@ -49,6 +63,15 @@ void cSistema::Imprimir() {
 
 void cSistema::ImprimirProcedimientos(cMedico* medico, cFecha fecha) {
 
+}
+
+void cSistema::AgregarIntervencion_al_Historial(cIntervencion* intervencion, cPaciente* paciente)
+{
+	
+	for (int i = 0; i < historial->getCA(); i++)
+	{
+		
+	}
 }
 
 

@@ -31,6 +31,7 @@ public:
 	int getSaturacion();
 	int getValor_Hematocrito();
 	bool getAyuno();
+	string getDNI();
 	int CalcularEdad(cFecha* nacimiento);
 	eProblema getProblema() { return Problema; };
 	eObraSocial getObra() { return Obra_social; };

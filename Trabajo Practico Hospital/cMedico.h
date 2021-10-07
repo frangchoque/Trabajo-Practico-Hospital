@@ -7,6 +7,7 @@ class cMedico :
     public cPersonal
 {
 
+
 public:
 	cMedico(string dni, cFecha fecha, string nom, string sexo,int matricula,eEspecialidad especialidad_e);
 	~cMedico();
@@ -22,5 +23,6 @@ private:
 	eEspecialidad especialidad;
 	const unsigned int Matricula;
 	cHistoriaClinica* Registro;
+	bool Ocupado;
 };
 
