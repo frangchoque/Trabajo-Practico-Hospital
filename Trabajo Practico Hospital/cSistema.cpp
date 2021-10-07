@@ -1,31 +1,23 @@
 #include "cSistema.h"
 
 
-cSistema::cSistema(ListaT<cHistoriaClinica>* lista_HistClinicas, ListaT<cPersonal>* lista_Personal) {
+cSistema::cSistema() {
 
-	if (lista_HistClinicas != NULL) {
-		L_cHistoriaClinica = lista_HistClinicas;
-	}
-	else L_cHistoriaClinica = new ListaT<cHistoriaClinica>();
-	if (lista_HistClinicas != NULL) {
-		L_cPersonal= lista_Personal;
-	}
-	else 	L_cPersonal = new ListaT<cPersonal>();
+	Lista_Historias_Clinicas = new ListaT<cHistoriaClinica>();
+	Lista_Personal = new ListaT<cPersonal>();
 	
 }
 
 
 
 cSistema::~cSistema() {
-
+	delete Lista_Historias_Clinicas;
+	delete Lista_Personal;
 }
 
 
-
-
-
 void cSistema::AgregarHistoriaClinica(cPaciente* paciente) {
-
+	
 }
 
 

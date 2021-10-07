@@ -11,7 +11,7 @@ class cEnfermero :
 {
 
 public:
-	cEnfermero(string dni, cFecha* fecha, string nom, string sexo,bool turno);
+	cEnfermero(string dni, cFecha fecha, string nom, string sexo,bool turno);
 	~cEnfermero();
 	string GenerarMatricula();
 	void AdministrarMedicamento(cMedicamento* medicamento);

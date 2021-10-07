@@ -8,7 +8,7 @@ class cMedico :
 {
 
 public:
-	cMedico(string dni, cFecha* fecha, string nom, string sexo,int matricula,eEspecialidad especialidad_e);
+	cMedico(string dni, cFecha fecha, string nom, string sexo,int matricula,eEspecialidad especialidad_e);
 	~cMedico();
 
 	void AgregarIntervencion();

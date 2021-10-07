@@ -7,14 +7,13 @@ using namespace std;
 
 class cSistema//Hacer ingreso paciente que reciba un paciente, busque el historial del paciente, le asigne un médico, el medico lo vea, diagnostique 
 {//Lo trate, agregue la intervencion a la lista y lo saque
-	//cPersonal* m_cPersonal;
-	//cHistoriaClinica* m_cHistoriaClinica;
-	ListaT<cHistoriaClinica>L_cHistoriaClinica;
-	ListaT<cPersonal> L_cPersonal;
+	
+	ListaT<cHistoriaClinica>* Lista_Historias_Clinicas;
+	ListaT<cPersonal>* Lista_Personal;
 
 public:
-	cSistema(ListaT<cHistoriaClinica>lista_HistClinicas,ListaT<cPersonal>lista_Personal);
-	virtual ~cSistema();
+	cSistema();
+	~cSistema();
 	
 
 	void AgregarHistoriaClinica(cPaciente* paciente);
