@@ -10,5 +10,6 @@ public:
 	template <class tipoIntervencion>
 	void ListarIntervenciones();//lista las intervenciones por grupo
 
+
 };
 

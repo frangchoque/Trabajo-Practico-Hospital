@@ -3,6 +3,7 @@
 cMedico::cMedico(string dni, cFecha fecha, string nom, string sexo,int matricula,eEspecialidad especialidad_e):cPersonal(dni, fecha, nom, sexo), Matricula(matricula) {
 	especialidad = especialidad_e;
 	Registro = NULL;
+	Ocupado = false;//esta libre
 }
 
 cMedico::~cMedico() {

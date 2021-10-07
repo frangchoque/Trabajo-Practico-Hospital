@@ -15,14 +15,14 @@ public:
 	cSistema();
 	~cSistema();
 	
-
-	void AgregarHistoriaClinica(cPaciente* paciente);
+	void IngresarPaciente(cPaciente* paciente);
 	void AñadirPersonal(cPersonal* personal);
 	cHistoriaClinica* Buscar_por_DNI(string dni);
 	void CalcularFananciaTotal();
 	void EliminarPersonal();
 	void Imprimir();
 	void ImprimirProcedimientos(cMedico* medico, cFecha fecha);
+	void AgregarIntervencion_al_Historial(cIntervencion*intervencion,cPaciente*paciente);
 	string to_string();
 
 };

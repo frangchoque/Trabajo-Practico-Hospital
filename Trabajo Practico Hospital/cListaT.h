@@ -20,6 +20,7 @@ public:
 	void Eliminar(unsigned int ID);
 	T* Quitar(unsigned int ID);
 	T* Buscar_por_ID(unsigned int ID);
+	T* Buscar_por_string(string ID);
 	T* Buscar_por_pos(unsigned int pos);
 	unsigned int getCA();
 	int getPos(unsigned int ID);
@@ -123,6 +124,21 @@ inline T* ListaT<T>::Quitar(unsigned int ID)
 
 template<class T>
 inline T* ListaT<T>::Buscar_por_ID(unsigned int ID)
+{
+	T* aux = NULL;
+	for (i = 0; i < CA; i++)
+	{
+		if (lista[i]->getID() == ID)//Si lo encuentro, salgo del for
+		{
+			aux = lista[i];
+			break;
+		}
+	}
+	return aux;
+}
+
+template<class T>
+inline T* ListaT<T>::Buscar_por_string(string ID)
 {
 	T* aux = NULL;
 	for (i = 0; i < CA; i++)

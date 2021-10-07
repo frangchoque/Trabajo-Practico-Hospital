@@ -91,6 +91,11 @@ bool cPaciente::getAyuno()
 	return Ayunas;
 }
 
+string cPaciente::getDNI()
+{
+	return DNI;
+}
+
 int cPaciente::CalcularEdad(cFecha* nacimiento)
 {
 	int dif = 0;

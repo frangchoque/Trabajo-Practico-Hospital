@@ -16,9 +16,17 @@ cSistema::~cSistema() {
 }
 
 
-void cSistema::AgregarHistoriaClinica(cPaciente* paciente) {
+void cSistema::IngresarPaciente(cPaciente* paciente)
+{
 	
+	if (paciente != NULL) {
+	
+
+
+	}
+
 }
+
 
 
 void cSistema::AñadirPersonal(cPersonal* personal) {
