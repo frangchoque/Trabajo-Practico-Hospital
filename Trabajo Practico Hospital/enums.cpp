@@ -24,3 +24,18 @@ string Especialidad_to_string(Especialidad esp)
 		break;
 	}
 }
+
+string ObraSocial_to_string(ObraSocial obraSocial)
+{
+	switch (obraSocial)
+	{
+	case ObraSocial::CBA:
+		return "CBA";
+	case ObraSocial::DEF:
+		return "DEF";
+	case ObraSocial::HIG:
+		return "HIG";
+	case ObraSocial::OSDE:
+		return "OSDE";
+	}
+}

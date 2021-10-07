@@ -37,7 +37,7 @@ inline void ListaT<T>::Redimensionalizar()
 	{
 		if (lista[i] != NULL)
 		{
-			aux[i] = lista[i]
+			aux[i] = lista[i];
 		}
 		else
 			aux[i] = NULL;

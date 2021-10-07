@@ -34,7 +34,7 @@ void cEnfermero::AdministrarMedicamento(cMedicamento* medicamento) {
 	{
 		throw error;// Que lo controle en la cirujia
 	}
-
+	//Si administro el medicamento ¿Lo elimino de la lista?
 }
 
 

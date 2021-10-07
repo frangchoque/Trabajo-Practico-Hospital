@@ -17,7 +17,7 @@ void cMedico::AgregarIntervencion() {
 void cMedico::DarAlta() {
 	Registro->setAlta();
 	
-	Registro = NULL;
+	Registro = NULL;//El medico deja de estar a cargo del paciente
 
 }
 

@@ -17,3 +17,4 @@ int FuncionRand(int max, int min) {
 
 string Especialidad_to_string(Especialidad esp);
 
+string ObraSocial_to_string(ObraSocial obraSocial);

@@ -33,6 +33,8 @@ public:
 	void setInternado();
 	void setAlta();
 
+
+
 	void Imprimir();
 	string to_string();
 

@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "cPaciente.h"
 
 
@@ -29,7 +30,7 @@ unsigned int cPaciente::NumeroAfiliado()
 	{
 		random = FuncionRand(1000, 1);
 	}
-	return 0;
+	return 0;//Si no esta afiliado, el numero de afiliado es cero
 }
 
 
@@ -37,13 +38,22 @@ unsigned int cPaciente::NumeroAfiliado()
 
 
 void cPaciente::Imprimir() {
-
+	cout << this->to_string() << endl;
 }
 
 
 string cPaciente::to_string() {
-
-	return  NULL;
+	string aux = "\nNombre: " + Nombre + "\nDNI: " + DNI + "\nEdad: " + std::to_string(Edad) + "\nSexo: " + 
+		"\nFecha de nacimiento: "+ Fecha_nacimiento->tm_to_string_Fecha()+ Sexo + "\nObra social: " + ObraSocial_to_string(Obra_social);
+	if (Afiliado)
+	{
+		aux += "\nNumero de afiliado: " + std::to_string(Numero_afiliado);
+	}
+	else
+	{
+		aux += "\nNo afiliado";
+	}
+	return aux;
 }
 
 void cPaciente::GenerarValores_HematocritoySaturacion()

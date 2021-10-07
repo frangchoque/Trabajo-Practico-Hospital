@@ -10,7 +10,7 @@ protected:
 	cMedico* m_cMedico;
 
 public:
-	cIntervencion(cFecha*FyH,cMedico*medico1);
+	cIntervencion(cFecha*FyH,cMedico* medico1);
 	virtual ~cIntervencion();
 	
 
