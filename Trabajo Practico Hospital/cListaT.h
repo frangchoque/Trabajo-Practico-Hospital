@@ -143,13 +143,14 @@ inline T* ListaT<T>::Buscar_por_string(string ID)
 	T* aux = NULL;
 	for (i = 0; i < CA; i++)
 	{
-		if (lista[i]->getID() == ID)//Si lo encuentro, salgo del for
+		if (*(lista[i]) == ID)//Si lo encuentro, salgo del for
 		{
 			aux = lista[i];
+			return aux;
 			break;
 		}
 	}
-	return aux;
+	return NULL;
 }
 
 template<class T>

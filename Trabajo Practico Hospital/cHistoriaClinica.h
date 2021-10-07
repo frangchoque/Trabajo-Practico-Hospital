@@ -32,7 +32,7 @@ public:
 	virtual ~cHistoriaClinica();
 	void setInternado();
 	void setAlta();
-
+	cPaciente* getPaciente();
 
 
 	void Imprimir();
