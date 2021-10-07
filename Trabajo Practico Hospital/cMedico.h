@@ -16,7 +16,7 @@ public:
 	void DarAlta();
 	void Imprimir();
 	void Internar_paciente();
-	void ModificarIndicaciones();
+	string ModificarIndicaciones();
 	string to_string();
 
 private:
