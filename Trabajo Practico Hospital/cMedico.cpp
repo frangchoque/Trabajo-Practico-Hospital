@@ -11,7 +11,9 @@ cMedico::~cMedico() {
 }
 
 void cMedico::AgregarIntervencion() {
-	
+	//Practica: Problemas de vision, Covid
+	//Cirugia: Dolor en el pecho
+	//Consulta: Tos, fiebre, dolor abdominal
 }
 
 
