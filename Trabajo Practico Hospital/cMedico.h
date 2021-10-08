@@ -20,6 +20,7 @@ public:
 	string to_string();
 	bool getOcupado();
 	string getEspecialidad();
+	void setOcupado() { Ocupado = false; };
 private:
 	eEspecialidad especialidad;
 	const unsigned int Matricula;

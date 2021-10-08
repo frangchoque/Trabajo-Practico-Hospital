@@ -39,3 +39,25 @@ string ObraSocial_to_string(ObraSocial obraSocial)
 		return "OSDE";
 	}
 }
+
+string Problema_to_string(eProblema prob)
+{
+	switch (prob)
+	{
+	case eProblema::COVID:
+		return "COVID";
+	case eProblema::DolorAbdominal:
+		return "DolorAbdominal";
+	case eProblema::DolorPecho:
+		return "DolorPecho";
+	case eProblema::Fiebre:
+		return "Fiebre";
+	case eProblema::Problemas_de_Vision:
+		return "Problemas_de_Vision";
+	case eProblema::Tos:
+		return "Tos";
+
+	default:
+		break;
+	}
+}

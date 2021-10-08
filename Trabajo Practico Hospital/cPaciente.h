@@ -34,7 +34,8 @@ public:
 	string getDNI();
 	int CalcularEdad(cFecha* nacimiento);
 	eProblema getProblema() { return Problema; };
-	eObraSocial getObra() { return Obra_social; };
+	string getProblemaString() { return Problema_to_string(Problema); }
+	ObraSocial getObra() { return Obra_social; };
 };
 	//Calcular edad devuelve un int
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "cPersonal.h"
 #include "cHistoriaClinica.h"
-#include "cLista_HIstorias_Clinicas.h"
+
 #include "cListaT.h"
 #include <string>
 #include "cIntervencion.h"
@@ -14,6 +14,7 @@ class cSistema//Hacer ingreso paciente que reciba un paciente, busque el histori
 	cPersonal* m_personal;
 	ListaT<cHistoriaClinica>* Lista_Hist_Clinicas;
 	cHistoriaClinica* L_Historias;
+	cIntervencion* m_Intervencion;
 public:
 	cSistema(ListaT<cHistoriaClinica>* lista_historial_paciente, ListaT<cPersonal>* lista_personal);
 	~cSistema();
@@ -28,5 +29,6 @@ public:
 	void AgregarIntervencion_al_Historial(cIntervencion*intervencion,cPaciente*paciente);//agrega la nueva intervencion hecha al paciente en su historial
 	string to_string();
 	void Asociar_Medico_Paciente(cPaciente*paciente);
+	string Problema_Especilidad(string problema);//dice que medico es el correcto para tratar al paciente
 };
 

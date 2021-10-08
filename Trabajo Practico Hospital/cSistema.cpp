@@ -14,6 +14,7 @@ cSistema::cSistema(ListaT<cHistoriaClinica>* lista_historial_paciente, ListaT<cP
 		Lista_Hist_Clinicas = new ListaT<cHistoriaClinica>();
 	m_personal = NULL;
 	L_Historias = NULL;
+	m_Intervencion = NULL;
 
 }
 
@@ -75,6 +76,7 @@ void cSistema::Imprimir() {
 
 void cSistema::ImprimirProcedimientos(cMedico* medico, cFecha fecha) {
 
+
 }
 
 void cSistema::AgregarIntervencion_al_Historial(cIntervencion* intervencion, cPaciente* paciente)
@@ -98,18 +100,42 @@ void cSistema::Asociar_Medico_Paciente(cPaciente* paciente)
 	cPersonal* aux1=NULL;
 	cPersonal* aux2=NULL;
 	cMedico* medico;
+	string Profesion;
+	string dolor=paciente->getProblemaString();
 	if (paciente != NULL) {
 		//retorna un medico libre
 		for (int i = 0; i < Lista_Personal->getCA(); i++)
 		{
 			aux1 = Lista_Personal->Buscar_por_pos(i);//me devuelve un  personal (medico o enfermero)
 			aux2 = dynamic_cast<cMedico*>(aux1); // me fijo si es medico
+			
 			if (aux2 != NULL) {//se encontro un medico
 				medico = dynamic_cast<cMedico*>(aux2);
+				Profesion = medico->getEspecialidad();
+				
+				if (Profesion == Problema_Especilidad(dolor)) {//me fijo si el medico es de la profesion correcta para el problema del paciente
+					
+					if (medico->getOcupado() == true) { medico->setOcupado();/*lo desocupo para poder usarlo*/}
 
+					string dolor2 = Problema_Especilidad(dolor);//que medico necesita segun su problema
+					if (dolor2 == "Practica") { m_Intervencion->RealizarIntervencion(paciente);}
+					else if (dolor2 == "Cirugia") { m_Intervencion->RealizarIntervencion(paciente);}
+					if (dolor == "Consulta") { m_Intervencion->RealizarIntervencion(paciente); }
+					else { medico = NULL; }//no se encontro ningun medico para el problema entonces libero el puntero
+
+				}
 
 			}
 
 		}
 	}
+}
+
+string cSistema::Problema_Especilidad(string problema)
+{
+	if (problema == "Problemas_de_Vision" || problema == "COVID") { return "Practica"; }
+	else if (problema == "DolorPecho" || problema == "DolorAbdominal") { return "Cirugia"; }
+	if (problema == "Tos" || problema == "Fiebre") { return "Consulta"; }
+	else { return "No se encontro especialidad"; }
+
 }
