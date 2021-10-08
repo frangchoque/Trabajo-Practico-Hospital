@@ -24,7 +24,7 @@ public:
 	T* Buscar_por_string(string ID);
 	T* Buscar_por_pos(unsigned int pos);
 	unsigned int getCA();
-	int getPos(unsigned int ID);
+	int getPos(string ID);
 
 	T* operator[](unsigned int pos);
 	void operator+(T* nuevo);
@@ -79,7 +79,7 @@ inline void ListaT<T>::Agregar(T* nuevo)
 {
 	if (nuevo == NULL)
 		throw new exception("ERROR: Puntero NULL");
-	if (Buscar_por_ID(nuevo->getID()) != NULL)//Controlo que el elemento no este en la lista
+	if (Buscar_por_string(nuevo->getID()) != NULL)//Controlo que el elemento no este en la lista
 		throw new exception("Ya existe en la lista");//Que todos los que tengan lista tengan un metodo getID()
 	if (this->CA >= TAM)//Si supero la capacidad
 		Redimensionalizar();
@@ -117,12 +117,13 @@ inline void ListaT<T>::EliminarItem(string id)
 template<class T>
 inline T* ListaT<T>::Quitar(string ID)
 {
-	if (nuevo == NULL)
-		throw new exception("ERROR: Puntero NULL");
-	if (Buscar_por_string(nuevo->getID()) == NULL)//Controlo que el elemento este en la lista
+	/*if (nuevo == NULL)
+		throw new exception("ERROR: Puntero NULL");*/
+	if (Buscar_por_string(ID) == NULL)//Controlo que el elemento este en la lista
 		throw new exception("El elemento no existe en la lista");
 	//Si o si van a funcionar
-	T* aux = Buscar_por_string(nuevo->getID();
+	T* aux = NULL;
+	aux = Buscar_por_string(ID);
 	int pos = getPos(ID);
 	for (int i = pos; i < CA-1; i++)
 	{
@@ -137,7 +138,7 @@ template<class T>
 inline T* ListaT<T>::Buscar_por_ID(unsigned int ID)
 {
 	T* aux = NULL;
-	for (i = 0; i < CA; i++)
+	for (int i = 0; i < CA; i++)
 	{
 		if (lista[i]->getID() == ID)//Si lo encuentro, salgo del for
 		{
@@ -152,9 +153,9 @@ template<class T>
 inline T* ListaT<T>::Buscar_por_string(string ID)
 {
 	T* aux = NULL;
-	for (i = 0; i < CA; i++)
+	for (int i = 0; i < CA; i++)
 	{
-		if (*(lista[i]) == ID)//Si lo encuentro, salgo del for
+		if ((lista[i])->getID() == ID)//Si lo encuentro, salgo del for
 		{
 			aux = lista[i];
 			return aux;
@@ -169,7 +170,7 @@ inline T* ListaT<T>::Buscar_por_pos(unsigned int pos)
 {
 	if (pos >= CA)//Controlo que sea mayor o igual a CA
 		return NULL;
-	return lista[i];
+	return lista[pos];
 }
 
 template<class T>
@@ -179,10 +180,10 @@ inline unsigned int ListaT<T>::getCA()
 }
 
 template<class T>
-inline int ListaT<T>::getPos(unsigned int ID)
+inline int ListaT<T>::getPos(string ID)
 {
 	int pos = -1;
-	for (i = 0; i < CA; i++)
+	for (int i = 0; i < CA; i++)
 	{
 		if (lista[i]->getID() == ID)//Si lo encuentro, salgo del for
 		{

@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "cSistema.h"
 
 
@@ -92,11 +93,11 @@ void cSistema::EliminarPersonal(cPersonal*personal) {
 		aux3 = dynamic_cast<cEnfermero*>(aux1);//si es enfermero
 		if (aux2 != NULL) {
 			medico = dynamic_cast<cMedico*>(aux2);
-			Lista_Personal->Eliminar(medico->getMatricula());
+			Lista_Personal->Eliminar(medico->getID());
 		}
 		if (aux3 != NULL) {
 			enfermero = dynamic_cast<cEnfermero*>(aux2);
-			Lista_Personal->EliminarItem(enfermero->getMatricula());
+			Lista_Personal->Eliminar(enfermero->getID());
 		}
 	}
 }

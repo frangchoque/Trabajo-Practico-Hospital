@@ -20,7 +20,7 @@ public:
 	string getNombre() { return Nombre; };
 	void Imprimir();
 	string to_string();
-
+	string getID() { return Nombre; };//Para la lista
 
 
 };
