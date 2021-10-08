@@ -18,7 +18,7 @@ public:
 	virtual void RealizarIntervencion(cPaciente* paciente)=0;
 	string to_string();
 	float getMonto() { return Monto; }
-	cMedico* getMedico() { return m_cMedico; }
+	cMedico* getMedico() { return m_cMedico->getMatricula(); }
 	cFecha* getFecha() { return FechayHora; }
 	string getID() { return "Algo"; };//No es necesario en la lista
 

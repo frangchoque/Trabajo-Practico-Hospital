@@ -95,4 +95,16 @@ void cFecha::SetHoy()
 	fecha.tm_year = aux->tm_year;
 }
 
+void cFecha::setHora(int num)
+{
+	fecha.tm_hour + num;
+}
+
+int cFecha::getHora()
+{
+	return fecha.tm_hour;
+}
+
+
+
 
