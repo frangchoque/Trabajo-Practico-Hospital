@@ -13,15 +13,15 @@ cMedico::~cMedico() {
 void cMedico::AgregarIntervencion() {
 	if (Registro->getPaciente()->getProblema() == Problema::Problemas_de_Vision || Registro->getPaciente()->getProblema() == Problema::COVID)
 	{
-
+		Registro->AgregarIntervencion(Registro->CrearIntervencion(*(new cFecha()), this, 0));
 	}
 	if (Registro->getPaciente()->getProblema() == Problema::DolorPecho || Registro->getPaciente()->getProblema() == Problema::DolorAbdominal)
 	{
-
+		Registro->AgregarIntervencion(Registro->CrearIntervencion(*(new cFecha()), this, 2));
 	}
 	if (Registro->getPaciente()->getProblema() == Problema::Tos || Registro->getPaciente()->getProblema() == Problema::Fiebre)
 	{
-
+		Registro->AgregarIntervencion(Registro->CrearIntervencion(*(new cFecha()), this, 1));
 	}
 	//Practica: Problemas de vision, Covid
 	//Cirugia: Dolor en el pecho, dolor abdominal

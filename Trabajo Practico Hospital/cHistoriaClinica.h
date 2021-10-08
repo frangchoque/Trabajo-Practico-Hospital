@@ -29,7 +29,8 @@ public:
 	void AgregarIntervencion(cIntervencion*nueva_intervencion);
 	void Imprimir();
 	string to_string();
-
+	cIntervencion* CrearIntervencion(cFecha FyH, cMedico* medico, unsigned int tipo);
+	
 	ListaT<cIntervencion>* getIntervencion() { return L_intervenciones; }
 };
 
