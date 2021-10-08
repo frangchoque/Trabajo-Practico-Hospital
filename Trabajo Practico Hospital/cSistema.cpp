@@ -14,8 +14,7 @@ cSistema::cSistema(ListaT<cHistoriaClinica>* lista_historial_paciente, ListaT<cP
 	else
 		Lista_Hist_Clinicas = new ListaT<cHistoriaClinica>();
 	m_personal = NULL;
-	L_Historias = NULL;
-	m_Intervencion = NULL;
+	
 
 }
 
@@ -66,17 +65,25 @@ cHistoriaClinica* cSistema::Buscar_por_DNI(string dni) {
 }
 
 
-void cSistema::CalcularGananciaTotal() {
+float cSistema::CalcularGananciaTotal() {
 	//imprimir ganancias del ultimo mes 
 	time_t now = time(0);
 	tm* aux = localtime(&now); //obtengo fecha actual
-	aux->tm_mon - 1;//el mes actual - 1 es el ultimo mes
+	int mes = aux->tm_mon - 1;//el mes (actual - 1) es el ultimo mes
 	ListaT<cIntervencion>* aux1;
+	cIntervencion* intervencion;
+	float Ganancia = 0.0;
+
 	for (int i = 0; i < Lista_Hist_Clinicas->getCA(); i++)
 	{
-		
-	}
+		aux1 = Lista_Hist_Clinicas->Buscar_por_pos(i)->getIntervencion();
+		if (mes == aux1->Buscar_por_pos(i)->getMes()) {
 
+			Ganancia += aux1->Buscar_por_pos(i)->getMonto();
+
+		}
+	}
+	return Ganancia;
 }
 
 
@@ -103,9 +110,6 @@ void cSistema::EliminarPersonal(cPersonal*personal) {
 }
 
 
-void cSistema::Imprimir() {
-
-}
 
 
 void cSistema::ImprimirProcedimientos(cMedico* medico, cFecha* fecha) {
@@ -126,16 +130,16 @@ historial_clinico_paciente = Buscar_por_DNI(paciente->getDNI());//retorno el his
 }
 
 
-string cSistema::to_string() {
 
-	return  NULL;
-}
 
 void cSistema::Asociar_Medico_Paciente(cPaciente* paciente)
 {
 	cPersonal* aux1=NULL;
 	cPersonal* aux2=NULL;
 	cMedico* medico;
+	cPractica* practica = NULL;
+	cConsulta* consulta = NULL;
+	cCirugia* cirugia = NULL;
 	string Profesion;
 	string dolor=paciente->getProblemaString();
 	if (paciente != NULL) {
@@ -154,11 +158,19 @@ void cSistema::Asociar_Medico_Paciente(cPaciente* paciente)
 					if (medico->getOcupado() == true) { medico->setOcupado(false);/*lo desocupo para poder usarlo*/}
 
 					string dolor2 = Problema_Especilidad(dolor);//que medico necesita segun su problema
-					if (dolor2 == "Practica") { m_Intervencion->RealizarIntervencion(paciente);}
-					else if (dolor2 == "Cirugia") { m_Intervencion->RealizarIntervencion(paciente);}
-					if (dolor == "Consulta") { m_Intervencion->RealizarIntervencion(paciente); }
+					if (dolor2 == "Practica") {
+						practica->setMedico(medico);
+						practica->RealizarIntervencion(paciente);
+					}
+					else if (dolor2 == "Cirugia") {
+						cirugia->setMedico(medico);
+						cirugia->RealizarIntervencion(paciente);
+					}
+					if (dolor == "Consulta") {
+						consulta->setMedico(medico);
+						consulta->RealizarIntervencion(paciente);
+					}
 					else { medico = NULL; }//no se encontro ningun medico para el problema entonces libero el puntero
-
 				}
 
 			}
