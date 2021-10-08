@@ -17,6 +17,9 @@ public:
 	void Imprimir();
 	virtual void RealizarIntervencion(cPaciente* paciente)=0;
 	string to_string();
+	float getMonto() { return Monto; }
+	cMedico* getMedico() { return m_cMedico; }
+	cFecha* getFecha() { return FechayHora; }
 
 
 };

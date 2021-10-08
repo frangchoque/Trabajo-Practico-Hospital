@@ -60,12 +60,39 @@ cHistoriaClinica* cSistema::Buscar_por_DNI(string dni) {
 
 
 void cSistema::CalcularGananciaTotal() {
+	//imprimir ganancias del ultimo mes 
+	time_t now = time(0);
+	tm* aux = localtime(&now); //obtengo fecha actual
+	aux->tm_mon - 1;//el mes actual - 1 es el ultimo mes
+	ListaT<cIntervencion>* aux1;
+	for (int i = 0; i < Lista_Hist_Clinicas->getCA(); i++)
+	{
+		
+	}
 
 }
 
 
-void cSistema::EliminarPersonal() {
-
+void cSistema::EliminarPersonal(cPersonal*personal) {
+	cPersonal* aux1 = NULL;
+	cPersonal* aux2 = NULL;
+	cPersonal* aux3 = NULL;
+	cMedico* medico = NULL;
+	cEnfermero* enfermero = NULL;
+	for (int i = 0; i < Lista_Personal->getCA(); i++)
+	{
+		aux1 = Lista_Personal->Buscar_por_pos(i);//me devuelve un  personal (medico o enfermero)
+		aux2 = dynamic_cast<cMedico*>(aux1); // me fijo si es medico
+		aux3 = dynamic_cast<cEnfermero*>(aux1);//si es enfermero
+		if (aux2 != NULL) {
+			medico = dynamic_cast<cMedico*>(aux2);
+			Lista_Personal->Eliminar(medico->getMatricula());
+		}
+		if (aux3 != NULL) {
+			enfermero = dynamic_cast<cEnfermero*>(aux2);
+			Lista_Personal->EliminarItem(enfermero->getMatricula());
+		}
+	}
 }
 
 
@@ -74,9 +101,11 @@ void cSistema::Imprimir() {
 }
 
 
-void cSistema::ImprimirProcedimientos(cMedico* medico, cFecha fecha) {
+void cSistema::ImprimirProcedimientos(cMedico* medico, cFecha* fecha) {
 
-
+	cHistoriaClinica* aux;
+	aux=medico->getRegistro();
+	aux->Imprimir_Intervenciones(fecha);
 }
 
 void cSistema::AgregarIntervencion_al_Historial(cIntervencion* intervencion, cPaciente* paciente)

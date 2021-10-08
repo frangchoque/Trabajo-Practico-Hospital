@@ -1,7 +1,7 @@
 #pragma once
 #include "cPersonal.h"
 #include "cHistoriaClinica.h"
-
+#include "cEnfermero.h"
 #include "cListaT.h"
 #include <string>
 #include "cIntervencion.h"
@@ -23,9 +23,9 @@ public:
 	void AñadirPersonal(cPersonal* personal);
 	cHistoriaClinica* Buscar_por_DNI(string dni);
 	void CalcularGananciaTotal();
-	void EliminarPersonal();
+	void EliminarPersonal(cPersonal*personal);
 	void Imprimir();
-	void ImprimirProcedimientos(cMedico* medico, cFecha fecha);
+	void ImprimirProcedimientos(cMedico* medico, cFecha* fecha);//imprime los procedimientos de un medico en una fecha
 	void AgregarIntervencion_al_Historial(cIntervencion*intervencion,cPaciente*paciente);//agrega la nueva intervencion hecha al paciente en su historial
 	string to_string();
 	void Asociar_Medico_Paciente(cPaciente*paciente);

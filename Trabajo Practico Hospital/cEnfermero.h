@@ -20,6 +20,7 @@ public:
 	void Verificar_vencimiento(cMedicamento* medicamento);
 	string Turno_to_string();
 	static ListaT<cMedicamento>* getInventario();
+	string getMatricula() { return Matricula; }
 
 private:
 	const string Matricula;

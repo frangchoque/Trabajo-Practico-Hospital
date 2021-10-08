@@ -21,6 +21,8 @@ public:
 	bool getOcupado();
 	string getEspecialidad();
 	void setOcupado() { Ocupado = false; };
+	unsigned int getMatricula() { return Matricula; }
+	cHistoriaClinica* getRegistro() { return Registro; }
 private:
 	eEspecialidad especialidad;
 	const unsigned int Matricula;

@@ -10,19 +10,11 @@ using namespace std;
 class cHistoriaClinica
 {
 private:
-	/**
-	 * si no esta afiliado, no tiene numero de afiliado
-	 */
-	//bool Afiliado;
+	
 	static unsigned int Contador;
-	//const string DNI;
-	//const cFecha Fecha_nacimiento;
+	
 	const unsigned int ID;
 	bool Internado;
-	//string Nombre;
-	//unsigned int Numero_afiliado;
-	//eObraSocial Obra_social;
-	//string Sexo;
 	cPaciente* m_paciente;//asi tiene toda la infromacion del paciente
 	cIntervencion* m_cIntervencion;
 	ListaT<cIntervencion>* L_intervenciones;
@@ -33,11 +25,11 @@ public:
 	void setInternado();
 	void setAlta();
 	cPaciente* getPaciente();
-
+	void Imprimir_Intervenciones(cFecha* fecha);
 	void AgregarIntervencion(cIntervencion*nueva_intervencion);
 	void Imprimir();
 	string to_string();
 
-
+	ListaT<cIntervencion>* getIntervencion() { return L_intervenciones; }
 };
 

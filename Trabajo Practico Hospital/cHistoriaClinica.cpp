@@ -31,6 +31,19 @@ cPaciente* cHistoriaClinica::getPaciente()
 	return m_paciente;
 }
 
+void cHistoriaClinica::Imprimir_Intervenciones(cFecha* fecha)
+{
+	bool aux;
+	cIntervencion* intervencion;
+	
+	for (int i = 0; i < L_intervenciones->getCA(); i++)
+	{
+		intervencion = L_intervenciones->Buscar_por_pos(i);
+		aux = fecha->CompararFecha(fecha, intervencion->getFecha());
+		if (aux == true) { intervencion->Imprimir(); }
+	}
+}
+
 
 
 

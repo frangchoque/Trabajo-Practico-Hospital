@@ -18,6 +18,7 @@ public:
 
 	void Agregar(T* nuevo);
 	void Eliminar(unsigned int ID);
+	void EliminarItem(string id);
 	T* Quitar(unsigned int ID);
 	T* Buscar_por_ID(unsigned int ID);
 	T* Buscar_por_string(string ID);
@@ -101,6 +102,15 @@ inline void ListaT<T>::Eliminar(unsigned int ID)
 	}
 	//Si llego hasta aca no deberia haber problemas
 	delete aux;
+}
+
+template<class T>
+inline void ListaT<T>::EliminarItem(string id)
+{
+	T* aux = NULL;
+	aux->Buscar_por_string(id);
+	delete aux;
+
 }
 
 template<class T>
