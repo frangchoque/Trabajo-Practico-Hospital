@@ -1,5 +1,7 @@
 #include "cConsulta.h"
+#include "cPaciente.h"
 #include<sstream>
+
 
 cConsulta::cConsulta(cFecha* FyH, cMedico* medico):cIntervencion(FyH,medico) {
 	Indicaciones = "Todavia no hay indicaciones";

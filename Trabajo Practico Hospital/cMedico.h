@@ -1,7 +1,8 @@
 #pragma once
 #include "cPersonal.h"
 #include "enums.h"
-#include "cHistoriaClinica.h"
+class cHistoriaClinica;
+
 
 class cMedico :
     public cPersonal

@@ -21,7 +21,7 @@ cSistema::cSistema(ListaT<cHistoriaClinica>* lista_historial_paciente, ListaT<cP
 
 
 cSistema::~cSistema() {
-
+	delete Lista_Hist_Clinicas;
 	delete Lista_Personal;
 }
 
@@ -49,7 +49,13 @@ void cSistema::IngresarPaciente(cPaciente* paciente)
 
 void cSistema::AñadirPersonal(cPersonal* personal) {
 
-	Lista_Personal->Agregar(personal);
+	try {
+		Lista_Personal->Agregar(personal);
+	}
+	catch (exception* error)
+	{
+		throw error;
+	}
 }
 
 

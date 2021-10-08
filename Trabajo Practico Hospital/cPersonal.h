@@ -11,6 +11,7 @@ public:
 	virtual ~cPersonal();
 	void Imprimir();
 	string to_string();
+	string getID() { return DNI; };
 
 protected:
 	string DNI;

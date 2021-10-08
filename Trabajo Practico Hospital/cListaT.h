@@ -17,9 +17,9 @@ public:
 	~ListaT();
 
 	void Agregar(T* nuevo);
-	void Eliminar(unsigned int ID);
-	void EliminarItem(string id);
-	T* Quitar(unsigned int ID);
+	void Eliminar(string ID);
+	//void EliminarItem(string id);
+	T* Quitar(string ID);
 	T* Buscar_por_ID(unsigned int ID);
 	T* Buscar_por_string(string ID);
 	T* Buscar_por_pos(unsigned int pos);
@@ -89,7 +89,7 @@ inline void ListaT<T>::Agregar(T* nuevo)
 }
 
 template<class T>
-inline void ListaT<T>::Eliminar(unsigned int ID)
+inline void ListaT<T>::Eliminar(string ID)
 {
 	T* aux = NULL;
 	try
@@ -104,24 +104,25 @@ inline void ListaT<T>::Eliminar(unsigned int ID)
 	delete aux;
 }
 
-template<class T>
+//Corregir
+/*template<class T>
 inline void ListaT<T>::EliminarItem(string id)
 {
 	T* aux = NULL;
 	aux->Buscar_por_string(id);
 	delete aux;
 
-}
+}*/
 
 template<class T>
-inline T* ListaT<T>::Quitar(unsigned int ID)
+inline T* ListaT<T>::Quitar(string ID)
 {
 	if (nuevo == NULL)
 		throw new exception("ERROR: Puntero NULL");
-	if (Buscar_por_ID(nuevo->getID()) == NULL)//Controlo que el elemento este en la lista
+	if (Buscar_por_string(nuevo->getID()) == NULL)//Controlo que el elemento este en la lista
 		throw new exception("El elemento no existe en la lista");
 	//Si o si van a funcionar
-	aux = Buscar_por_ID(nuevo->getID();
+	T* aux = Buscar_por_string(nuevo->getID();
 	int pos = getPos(ID);
 	for (int i = pos; i < CA-1; i++)
 	{

@@ -12,19 +12,60 @@ int main() {
 	cFecha* fecha = new cFecha(20, 4, 1984, 20, 43);
 	cPersonal* Enfermero = new cEnfermero("29432903", *fecha, "Augusto Condori", "M", true);
 	cPersonal* Medico = new cMedico("28839204", *fecha, "Belen Azcuenaga", "F", 290472, Especialidad::Anestesiologo);
+	cPaciente* Paciente1 = new cPaciente(false, "Judith Thomas", fecha, ObraSocial::OSDE, "39284539", 'F', Problema::Fiebre, false);
+
+
+	cSistema* Hospital = new cSistema();
+
+	//Agrego a los enfermeros
+	Hospital->AñadirPersonal(Enfermero);
+	Enfermero = NULL;
+	Enfermero = new cEnfermero("25938423", *fecha, "Alan Acevedo", "M", false);
+	Hospital->AñadirPersonal(Enfermero);
 	
+	//Intento provocar un error
+	Enfermero = NULL;
+	try
+	{
+		Hospital->AñadirPersonal(Enfermero);
+	}
+	catch(exception* error)
+	{
+		cout << error->what() << endl;
+		delete error;
+	}
+
+	//Agrego a los medicos
+	Hospital->AñadirPersonal(Medico);
+	Medico = new cMedico("34929842", *fecha, "Eduardo Santillan", "M", 133243, Especialidad::MedicoGuardia);
+	Hospital->AñadirPersonal(Medico);
+
+	//Intento provocar otro error
+	try
+	{
+		Hospital->AñadirPersonal(Medico);//Lo agrego de nuevo
+	}
+	catch (exception* error)
+	{
+		cout << error->what() << endl;
+		delete error;
+	}
+	Medico = new cMedico("30128374", *fecha, "Alicia Casas", "F", 385932, Especialidad::CirujanoCardioVascular);
+	Hospital->AñadirPersonal(Medico);
+	Medico = new cMedico("20494294", *fecha, "Gaston Heraldo", "M", 123000, Especialidad::CirujanoGeneral);
+	Hospital->AñadirPersonal(Medico);
+	Medico = new cMedico("29000123", *fecha, "Valeria Degiusti", "F", 394852, Especialidad::Oftalmologo);
+	Hospital->AñadirPersonal(Medico);
+
+	Hospital->IngresarPaciente(Paciente1);
 
 
-	//creo una lista del Personal
-	ListaT<cPersonal>* ListaPersonal = new ListaT<cPersonal>(10);//no se 
-	ListaPersonal.Agregar(Enfermero);
-
-	cSistema* Hospital = new cSistema(/*ListaHistorial,*/ListaPersonal);
 
 
 
-	delete Enfermero;
-	delete Medico;
+	//delete Enfermero;
+	//delete Medico;
+	delete Paciente1;
 	delete Hospital;
 
 	return 0;

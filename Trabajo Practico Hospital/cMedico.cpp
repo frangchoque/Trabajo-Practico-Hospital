@@ -1,4 +1,5 @@
 #include "cMedico.h"
+#include "cHistoriaClinica.h"
 
 cMedico::cMedico(string dni, cFecha fecha, string nom, string sexo,int matricula,eEspecialidad especialidad_e):cPersonal(dni, fecha, nom, sexo), Matricula(matricula) {
 	especialidad = especialidad_e;
