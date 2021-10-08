@@ -20,7 +20,7 @@ public:
 	float getMonto() { return Monto; }
 	cMedico* getMedico() { return m_cMedico; }
 	cFecha* getFecha() { return FechayHora; }
-
+	string getID() { return "Algo"; };//No es necesario en la lista
 
 };
 

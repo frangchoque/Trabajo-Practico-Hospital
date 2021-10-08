@@ -59,13 +59,17 @@ void cHistoriaClinica::AgregarIntervencion(cIntervencion* nueva_intervencion)
 }
 
 void cHistoriaClinica::Imprimir() {
-
+	cout << this->to_string() << endl;
 }
 
 
 string cHistoriaClinica::to_string() {
-
-	
+	string aux = m_paciente->to_string() + "\nID: " + ID;
+	if (Internado)
+		aux += "\nInternado";
+	else
+		aux += "\nNo internado";
+	return aux;
 }
 
 cIntervencion* cHistoriaClinica::CrearIntervencion(cFecha FyH, cMedico* medico, unsigned int tipo)
@@ -81,8 +85,8 @@ cIntervencion* cHistoriaClinica::CrearIntervencion(cFecha FyH, cMedico* medico, 
 	}
 	else if (tipo == 2)
 	{
-		
-		aux = new cCirugia(&FyH, medico);//Problemas
+		aux = NULL;
+		//aux = new cCirugia(&FyH, medico);//Problemas
 	}
 
 	return aux;

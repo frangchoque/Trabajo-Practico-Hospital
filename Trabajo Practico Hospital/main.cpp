@@ -1,5 +1,4 @@
 #include "cPersonal.h"
-#include "cEnfermero.h"
 #include "cSistema.h"
 #include <stdlib.h>
 #include <time.h>
