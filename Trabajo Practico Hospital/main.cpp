@@ -5,6 +5,7 @@
 #include <time.h>
 #include "cFecha.h"
 #include "enums.h"
+#include "cListaT.h"
 
 
 int main() {
@@ -14,6 +15,12 @@ int main() {
 	cPersonal* Medico = new cMedico("28839204", *fecha, "Belen Azcuenaga", "F", 290472, Especialidad::Anestesiologo);
 	cPaciente* Paciente1 = new cPaciente(false, "Judith Thomas", fecha, ObraSocial::OSDE, "39284539", 'F', Problema::Fiebre, false);
 
+	//Obtengo la lista de medicamentos
+	ListaT<cMedicamento>* Medicamentos = ((cEnfermero*)Enfermero)->getInventario();
+
+	//Creo medicamentos
+	cMedicamento* Medicamento = new cMedicamento("Bayer", "Lisopresol", fecha);
+	Medicamentos->Agregar(Medicamento);
 
 	cSistema* Hospital = new cSistema();
 
