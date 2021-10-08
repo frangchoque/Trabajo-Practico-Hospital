@@ -12,28 +12,32 @@ cConsulta::~cConsulta() {
 void cConsulta::RealizarIntervencion(cPaciente* paciente) {
 	if (paciente->getProblema() == eProblema::DolorPecho)
 	{
+		FechayHora->tm_to_string_Fecha();
+		FechayHora->tm_to_string_Hora();
 		Indicaciones = "Necesita realizarse un electrograma , Analisis de Sangre y Radiografia de torax";
-		//Como pasarle el paciente
 		Monto = 100.0;
+		
 	}
 	if (paciente->getProblema() == eProblema::DolorAbdominal)
 	{
+		FechayHora->tm_to_string_Fecha();
+		FechayHora->tm_to_string_Hora();
 		Indicaciones = "Necesita realizarse un ecografia Abdominal";
-		//Como pasarle el paciente
 		Monto = 100.0;
 	}
 	if (paciente->getProblema() == eProblema::Problemas_de_Vision)
 	{
+		FechayHora->tm_to_string_Fecha();
+		FechayHora->tm_to_string_Hora();
 		Indicaciones = "Necesita ir a un oftalmologo";
-		//Como pasarle el paciente
 		Monto = 100.0;
 	}
 	if (paciente->getProblema() == eProblema::COVID)
 	{
+		FechayHora->tm_to_string_Fecha();
+		FechayHora->tm_to_string_Hora();
 		Indicaciones = "Necesita ser hospitalizado inmediatamente";
-		//Como pasarle el paciente
 		Monto = 100.0;
-
 	}
 	
 }

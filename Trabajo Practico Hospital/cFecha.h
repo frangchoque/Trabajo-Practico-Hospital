@@ -27,6 +27,8 @@ public:
 	~cFecha();
 	//int CalcularEdad(cFecha* nacimiento);
 	void SetHoy();
+	void setHora(int num);
+    int getHora();
 
 	//~cFecha();
 };

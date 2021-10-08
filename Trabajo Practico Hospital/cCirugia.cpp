@@ -1,30 +1,24 @@
 #include "cCirugia.h"
 #include<sstream>
 
-cCirugia::cCirugia(cFecha* FyH, cMedico* medico1,cFecha* alta,bool ambulatoria, cMedico* medicoadicional, cEnfermero* enfermero):cIntervencion(FyH,medico1) {
+cCirugia::cCirugia( cMedico* medico1,cFecha* alta, cMedico* medicoadicional, cEnfermero* enfermero):cIntervencion(FyH,medico1) {
 	Alta = alta;
 	Fecha_Hora_inicio = new cFecha();
 	Duracion = FuncionRand(1,6);
-	Ambulatoria = ambulatoria;
+	Ambulatoria = false;
 	Nombre_Procedimiento = "NADA";
 	MedicoAdicional = medicoadicional;
 	Enfermero = enfermero;
 	
 }
 
-
-
 cCirugia::~cCirugia() {
 
 }
 
-
-
-
-
 void cCirugia::Prequirurgico(cPaciente* paciente) {
 	
-	int ok = 0;//si es =3 cumple los 3 requisitos para la cirugia
+	int ok = 0; //si es =3 cumple los 3 requisitos para la cirugia
 	
 	cout << "El paciente está en ayunas de 8 horas?"<<endl;
 	if (paciente->getAyuno() == true) {
@@ -58,24 +52,32 @@ void cCirugia::Prequirurgico(cPaciente* paciente) {
 	if (ok == 3) { RealizarIntervencion(paciente); }
 	else cout << "\n El paciente no puede ser intervenido hoy";
 
-	//falta marcar la cirugia como cancelada en historial clinico y el monto tiene que ser 0 
+	
 }
 
 
 void cCirugia::RealizarIntervencion(cPaciente* paciente) {
 	eProblema problema = paciente->getProblema();    //Nos copiamos el problema del paciente a una variable Problema 
+
 	if (Ambulatoria == false)
 	{
+		//Dependiendo del problema del paciente se le realizara un procedimiento quirurgico
 		if (problema == eProblema::DolorPecho) {
 
 
 			Nombre_Procedimiento = "Cirugia de bypass";
-		   // Fecha_Hora_inicio->Actual()->tm_hour; //como funcionan las fechas
-			//Alta = 
+			Fecha_Hora_inicio->tm_to_string_Fecha();
+			Fecha_Hora_inicio->tm_to_string_Hora();
+			Fecha_Hora_inicio->setHora(Duracion);
+			Alta = Fecha_Hora_inicio->tm_to_string_Fecha() + Fecha_Hora_inicio->getHora();
 			Monto = 500.0;
 			cout << m_cMedico->getMatricula() << " " << " esta atendiendo al paciente " << paciente->NumeroAfiliado() << " " << endl;
 			m_cMedico->setOcupado(true);
-			Enfermero->AdministrarMedicamento(medicamento);
+			for (int i = 0; i < medicamento.getCA(); i++)
+			{
+				Enfermero->AdministrarMedicamento(medicamento[i]);
+			}
+			m_cMedico->DarAlta();
 		}
 		else
 		{
@@ -83,17 +85,24 @@ void cCirugia::RealizarIntervencion(cPaciente* paciente) {
 			Ambulatoria = true;
 			m_cMedico->ModificarIndicaciones();
 			Monto = 50.0;
+			
 
 		}
 		if (problema == eProblema::DolorAbdominal)
 		{
 			Nombre_Procedimiento = "Apendicectomia";
-			//Fecha_Hora_inicio = Fecha_Hora_inicio->SetHoy();
-			//Alta = Duracion - Fecha_Hora_inicio->getHora();
+			Fecha_Hora_inicio->tm_to_string_Fecha();
+			Fecha_Hora_inicio->tm_to_string_Hora();
+			Fecha_Hora_inicio->setHora(Duracion);
+			Alta = Fecha_Hora_inicio->tm_to_string_Fecha() + Fecha_Hora_inicio->getHora();
 			Monto = 700.0;
 			cout << m_cMedico->getMatricula() << " " << " esta atendiendo al paciente " << paciente->NumeroAfiliado() << " " << endl;
 			m_cMedico->setOcupado(true);
-			Enfermero->AdministrarMedicamento(medicamento);
+			for (int i = 0; i < medicamento.getCA(); i++)
+			{
+				Enfermero->AdministrarMedicamento(medicamento[i]);
+			}
+			m_cMedico->DarAlta();
 		}
 		else
 		{
@@ -105,11 +114,19 @@ void cCirugia::RealizarIntervencion(cPaciente* paciente) {
 		if (problema == eProblema::Problemas_de_Vision)
 		{
 			Nombre_Procedimiento = "Transplante de Cornea";
-			//Fecha_Hora_inicio = Fecha_Hora_inicio->SetHoy();
-			//Alta = Duracion - Fecha_Hora_inicio->getHora();
+			Fecha_Hora_inicio->tm_to_string_Fecha();
+			Fecha_Hora_inicio->tm_to_string_Hora();
+			Fecha_Hora_inicio->setHora(Duracion);
+			Alta = Fecha_Hora_inicio->tm_to_string_Fecha() + Fecha_Hora_inicio->getHora();
 			Monto = 300.0;
 			cout << m_cMedico->getMatricula() << " " << " esta atendiendo al paciente " << paciente->NumeroAfiliado() << " " << endl;
-			Enfermero->AdministrarMedicamento(medicamento);
+			m_cMedico->setOcupado(true);
+			for (int i = 0; i < medicamento.getCA(); i++)
+			{
+				Enfermero->AdministrarMedicamento(medicamento[i]);
+			}
+			m_cMedico->DarAlta();
+		
 		}
 		else
 		{
@@ -122,11 +139,18 @@ void cCirugia::RealizarIntervencion(cPaciente* paciente) {
 		if (problema == eProblema::COVID)
 		{
 			Nombre_Procedimiento = "tratamiento con fármacos antivirales ";
-			//Fecha_Hora_inicio = Fecha_Hora_inicio->SetHoy();
-			//Alta = Duracion - Fecha_Hora_inicio->getHora();
+			Fecha_Hora_inicio->tm_to_string_Fecha();
+			Fecha_Hora_inicio->tm_to_string_Hora();
+			Fecha_Hora_inicio->setHora(Duracion);
+			Alta = Fecha_Hora_inicio->tm_to_string_Fecha() + Fecha_Hora_inicio->getHora();
 			Monto = 1000.0;
 			cout << m_cMedico->getMatricula() << " " << " esta atendiendo al paciente " << paciente->NumeroAfiliado() << " " << endl;
-			Enfermero->AdministrarMedicamento(medicamento);
+			m_cMedico->setOcupado(true);
+			for (int i = 0; i < medicamento.getCA(); i++)
+			{
+				Enfermero->AdministrarMedicamento(medicamento[i]);
+			}
+			m_cMedico->DarAlta();
 		}
 		else
 		{
