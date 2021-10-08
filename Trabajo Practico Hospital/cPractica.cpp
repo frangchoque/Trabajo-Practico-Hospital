@@ -14,7 +14,7 @@ cPractica::~cPractica() {
 
 
 void cPractica::PedirAutorizacion(cPaciente* paciente) {
-	if(paciente->getObra_Social()::)
+	
 
 
 

@@ -2,6 +2,7 @@
 #include "cPaciente.h"
 #include "cIntervencion.h"
 #include "cEnfermero.h"
+#include"cMedicamento.h"
 
 class cCirugia :
     public cIntervencion
@@ -9,24 +10,23 @@ class cCirugia :
 private:
 	cFecha* Alta;
 	bool Ambulatoria;
-	unsigned int Duracion;
+	int Duracion;
 	cFecha* Fecha_Hora_inicio;
-	string Procedimiento;
+	string Nombre_Procedimiento;
 	cMedico* MedicoAdicional;
 	cEnfermero* Enfermero;
-	//falta lista de medicamentos
+	cMedicamento* medicamento; // ver como va la lista
 public:
-	cCirugia(cFecha* FyH, cMedico* medico1,cFecha*alta,cFecha*FyHinicio,unsigned int duracion,bool ambulatoria,cMedico*medicoadicional,cEnfermero*enfermero);
+	cCirugia(cFecha* FyH, cMedico* medico1,cFecha*alta,bool ambulatoria,cMedico*medicoadicional,cEnfermero*enfermero);
 	virtual ~cCirugia();
-	cEnfermero* m_cEnfermero;
-	cMedico* m_cMedico;
-	cMedicamento* m_cMedicamento;
 
-	void Imprimir();
 	void Prequirurgico(cPaciente* paciente);
 	void RealizarIntervencion(cPaciente* paciente);
-	string to_string();
+	cMedicamento* getmedicamento() { return medicamento; };
 
+
+	string to_string();
+	void Imprimir();
 
 
 };

@@ -20,7 +20,7 @@ public:
 	string to_string();
 	bool getOcupado();
 	string getEspecialidad();
-	void setOcupado() { Ocupado = false; };
+	void setOcupado(bool var) { Ocupado = var; };
 	unsigned int getMatricula() { return Matricula; }
 	cHistoriaClinica* getRegistro() { return Registro; }
 private:

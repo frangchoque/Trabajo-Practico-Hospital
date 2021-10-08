@@ -54,6 +54,7 @@ int cFecha::getAnio()
 {
 	return fecha.tm_year;
 }
+
 bool cFecha::CompararFecha(cFecha* fecha1, cFecha* fecha2)
 {
 	if (fecha1->getDia() == fecha2->getDia() && fecha1->getMes() == fecha2->getMes() && fecha1->getAnio() == fecha2->getAnio()) { return true; }
@@ -93,3 +94,5 @@ void cFecha::SetHoy()
 	fecha.tm_mon = aux->tm_mon;
 	fecha.tm_year = aux->tm_year;
 }
+
+

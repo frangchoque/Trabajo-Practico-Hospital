@@ -17,6 +17,7 @@ public:
 	cMedicamento(string Marca,string Nombre,cFecha*vencimiento);
 	~cMedicamento();
 
+	string getNombre() { return Nombre; };
 	void Imprimir();
 	string to_string();
 
