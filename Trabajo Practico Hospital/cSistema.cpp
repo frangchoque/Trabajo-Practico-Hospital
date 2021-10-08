@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "cSistema.h"
 
 
@@ -21,7 +22,7 @@ cSistema::cSistema(ListaT<cHistoriaClinica>* lista_historial_paciente, ListaT<cP
 
 
 cSistema::~cSistema() {
-
+	delete Lista_Hist_Clinicas;
 	delete Lista_Personal;
 }
 
@@ -49,7 +50,13 @@ void cSistema::IngresarPaciente(cPaciente* paciente)
 
 void cSistema::AñadirPersonal(cPersonal* personal) {
 
-	Lista_Personal->Agregar(personal);
+	try {
+		Lista_Personal->Agregar(personal);
+	}
+	catch (exception* error)
+	{
+		throw error;
+	}
 }
 
 
@@ -86,11 +93,11 @@ void cSistema::EliminarPersonal(cPersonal*personal) {
 		aux3 = dynamic_cast<cEnfermero*>(aux1);//si es enfermero
 		if (aux2 != NULL) {
 			medico = dynamic_cast<cMedico*>(aux2);
-			Lista_Personal->Eliminar(medico->getMatricula());
+			Lista_Personal->Eliminar(medico->getID());
 		}
 		if (aux3 != NULL) {
 			enfermero = dynamic_cast<cEnfermero*>(aux2);
-			Lista_Personal->EliminarItem(enfermero->getMatricula());
+			Lista_Personal->Eliminar(enfermero->getID());
 		}
 	}
 }
@@ -144,7 +151,7 @@ void cSistema::Asociar_Medico_Paciente(cPaciente* paciente)
 				
 				if (Profesion == Problema_Especilidad(dolor)) {//me fijo si el medico es de la profesion correcta para el problema del paciente
 					
-					if (medico->getOcupado() == true) { medico->setOcupado();/*lo desocupo para poder usarlo*/}
+					if (medico->getOcupado() == true) { medico->setOcupado(false);/*lo desocupo para poder usarlo*/}
 
 					string dolor2 = Problema_Especilidad(dolor);//que medico necesita segun su problema
 					if (dolor2 == "Practica") { m_Intervencion->RealizarIntervencion(paciente);}

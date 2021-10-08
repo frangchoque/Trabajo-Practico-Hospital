@@ -1,5 +1,7 @@
 #include "cConsulta.h"
+#include "cPaciente.h"
 #include<sstream>
+
 
 cConsulta::cConsulta(cFecha* FyH, cMedico* medico):cIntervencion(FyH,medico) {
 	Indicaciones = "Todavia no hay indicaciones";
@@ -53,6 +55,6 @@ string cConsulta::to_string() {
 }
 
 void cConsulta::Imprimir() {
-	string imprimr = to_string();
-	cout << Imprimir;
+	string imprimir = ((cIntervencion*)this)->to_string()+ this->to_string();
+	cout << imprimir<<endl;
 }

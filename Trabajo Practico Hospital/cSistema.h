@@ -16,7 +16,7 @@ class cSistema//Hacer ingreso paciente que reciba un paciente, busque el histori
 	cHistoriaClinica* L_Historias;
 	cIntervencion* m_Intervencion;
 public:
-	cSistema(ListaT<cHistoriaClinica>* lista_historial_paciente, ListaT<cPersonal>* lista_personal);
+	cSistema(ListaT<cHistoriaClinica>* lista_historial_paciente=NULL, ListaT<cPersonal>* lista_personal=NULL);
 	~cSistema();
 	
 	void IngresarPaciente(cPaciente* paciente);//recibe un paciente y le asigna un medico

@@ -1,19 +1,24 @@
 #include "cHistoriaClinica.h"
-unsigned int cHistoriaClinica::Contador = 0;
-cHistoriaClinica::cHistoriaClinica(cPaciente* paciente, cIntervencion* intervencion,bool internacion):ID(Contador++) {
+#include "cCirugia.h"
+#include "cConsulta.h"
+#include "cPractica.h"
+
+unsigned int cHistoriaClinica::Contador = 1;
+cHistoriaClinica::cHistoriaClinica(cPaciente* paciente, cIntervencion* intervencion,bool internacion):ID(std::to_string(Contador)) {
 	
 	m_paciente = paciente;
 	m_cIntervencion = intervencion;
 	Internado = internacion;
 	L_intervenciones = new ListaT<cIntervencion>();
-
+	Contador++;
 
 }
 
 
 
 cHistoriaClinica::~cHistoriaClinica() {
-
+	delete L_intervenciones;
+	delete m_paciente;//Porque queda ligado a la historia clinica
 }
 
 void cHistoriaClinica::setInternado()
@@ -50,7 +55,7 @@ void cHistoriaClinica::Imprimir_Intervenciones(cFecha* fecha)
 
 void cHistoriaClinica::AgregarIntervencion(cIntervencion* nueva_intervencion)
 {
-	L_intervenciones->Agregar(nueva_intervencion);
+	L_intervenciones->Agregar(nueva_intervencion); 
 }
 
 void cHistoriaClinica::Imprimir() {
@@ -61,4 +66,24 @@ void cHistoriaClinica::Imprimir() {
 string cHistoriaClinica::to_string() {
 
 	
+}
+
+cIntervencion* cHistoriaClinica::CrearIntervencion(cFecha FyH, cMedico* medico, unsigned int tipo)
+{
+	cIntervencion* aux = NULL;
+	if (tipo == 0)
+	{
+		aux = new cPractica(&FyH, medico);
+	}
+	else if (tipo == 1)
+	{
+		aux = new cConsulta(&FyH, medico);
+	}
+	else if (tipo == 2)
+	{
+		
+		aux = new cCirugia(&FyH, medico);//Problemas
+	}
+
+	return aux;
 }
