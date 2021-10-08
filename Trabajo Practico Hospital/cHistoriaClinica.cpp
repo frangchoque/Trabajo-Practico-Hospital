@@ -18,6 +18,7 @@ cHistoriaClinica::cHistoriaClinica(cPaciente* paciente, cIntervencion* intervenc
 
 cHistoriaClinica::~cHistoriaClinica() {
 	delete L_intervenciones;
+	delete m_paciente;//Porque queda ligado a la historia clinica
 }
 
 void cHistoriaClinica::setInternado()
