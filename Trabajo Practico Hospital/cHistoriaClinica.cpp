@@ -3,14 +3,14 @@
 #include "cConsulta.h"
 #include "cPractica.h"
 
-unsigned int cHistoriaClinica::Contador = 0;
-cHistoriaClinica::cHistoriaClinica(cPaciente* paciente, cIntervencion* intervencion,bool internacion):ID(Contador++) {
+unsigned int cHistoriaClinica::Contador = 1;
+cHistoriaClinica::cHistoriaClinica(cPaciente* paciente, cIntervencion* intervencion,bool internacion):ID(std::to_string(Contador)) {
 	
 	m_paciente = paciente;
 	m_cIntervencion = intervencion;
 	Internado = internacion;
 	L_intervenciones = new ListaT<cIntervencion>();
-
+	Contador++;
 
 }
 
@@ -80,7 +80,7 @@ cIntervencion* cHistoriaClinica::CrearIntervencion(cFecha FyH, cMedico* medico, 
 	}
 	else if (tipo == 2)
 	{
-
+		
 		aux = new cCirugia(&FyH, medico);//Problemas
 	}
 

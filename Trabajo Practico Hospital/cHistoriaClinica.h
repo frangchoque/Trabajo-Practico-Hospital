@@ -13,7 +13,7 @@ private:
 	
 	static unsigned int Contador;
 	
-	const unsigned int ID;
+	const string ID;
 	bool Internado;
 	cPaciente* m_paciente;//asi tiene toda la infromacion del paciente
 	cIntervencion* m_cIntervencion;
@@ -30,6 +30,8 @@ public:
 	void Imprimir();
 	string to_string();
 	cIntervencion* CrearIntervencion(cFecha FyH, cMedico* medico, unsigned int tipo);
+	string getID() { return ID; };
+
 	
 	ListaT<cIntervencion>* getIntervencion() { return L_intervenciones; }
 };

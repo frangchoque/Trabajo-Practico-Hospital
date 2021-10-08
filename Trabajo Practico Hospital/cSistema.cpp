@@ -151,7 +151,7 @@ void cSistema::Asociar_Medico_Paciente(cPaciente* paciente)
 				
 				if (Profesion == Problema_Especilidad(dolor)) {//me fijo si el medico es de la profesion correcta para el problema del paciente
 					
-					if (medico->getOcupado() == true) { medico->setOcupado();/*lo desocupo para poder usarlo*/}
+					if (medico->getOcupado() == true) { medico->setOcupado(false);/*lo desocupo para poder usarlo*/}
 
 					string dolor2 = Problema_Especilidad(dolor);//que medico necesita segun su problema
 					if (dolor2 == "Practica") { m_Intervencion->RealizarIntervencion(paciente);}
