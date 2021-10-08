@@ -18,7 +18,8 @@ public:
 	void Internar_paciente();
 	void ModificarIndicaciones();
 	string to_string();
-
+	bool getOcupado();
+	string getEspecialidad();
 private:
 	eEspecialidad especialidad;
 	const unsigned int Matricula;

@@ -35,6 +35,11 @@ cPaciente* cHistoriaClinica::getPaciente()
 
 
 
+void cHistoriaClinica::AgregarIntervencion(cIntervencion* nueva_intervencion)
+{
+	L_intervenciones->Agregar(nueva_intervencion);
+}
+
 void cHistoriaClinica::Imprimir() {
 
 }

@@ -16,7 +16,7 @@ int main() {
 
 
 	//creo una lista del Personal
-	ListaT<cPersonal> ListaPersonal = new ListaT<cPersonal>(10);//no se 
+	ListaT<cPersonal>* ListaPersonal = new ListaT<cPersonal>(10);//no se 
 	ListaPersonal.Agregar(Enfermero);
 
 	cSistema* Hospital = new cSistema(/*ListaHistorial,*/ListaPersonal);

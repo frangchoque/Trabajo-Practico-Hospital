@@ -34,7 +34,7 @@ public:
 	void setAlta();
 	cPaciente* getPaciente();
 
-
+	void AgregarIntervencion(cIntervencion*nueva_intervencion);
 	void Imprimir();
 	string to_string();
 

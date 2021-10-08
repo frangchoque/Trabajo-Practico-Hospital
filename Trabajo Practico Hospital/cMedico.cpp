@@ -45,3 +45,13 @@ string cMedico::to_string() {
 	aux = aux + "\nEspecialidad: " + Especialidad_to_string(this->especialidad);
 	return  aux;
 }
+
+bool cMedico::getOcupado()
+{
+	return Ocupado;
+}
+
+string cMedico::getEspecialidad()
+{
+	return Especialidad_to_string(especialidad);
+}
