@@ -1,5 +1,10 @@
 #include "enums.h"
 
+int FuncionRand(int max, int min)
+{
+	return (rand() % (max - min) + min);
+}
+
 string Especialidad_to_string(Especialidad esp)
 {
 	switch (esp)

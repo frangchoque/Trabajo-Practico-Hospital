@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "cSistema.h"
-
+#include "cMedico.h"
 
 cSistema::cSistema(ListaT<cHistoriaClinica>* lista_historial_paciente, ListaT<cPersonal>* lista_personal) {
 

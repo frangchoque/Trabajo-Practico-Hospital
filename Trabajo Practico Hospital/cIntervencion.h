@@ -1,6 +1,11 @@
 #pragma once
-#include "cMedico.h"
+//#include "cMedico.h"
+#include <string>
+#include "cFecha.h"
 class cPaciente;
+class cMedico;
+using namespace std;
+
 class cIntervencion
 {
 protected:

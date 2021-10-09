@@ -10,10 +10,7 @@ enum class eEspecialidad{MedicoGuardia=0,CirujanoGeneral,Anestesiologo,Interno,O
 
 enum class eProcedimiento {Apendicectomia = 0, Transplante_de_Cornea,ProblermasRespiratorios,Bypass} typedef Procedimientos;
 
-int FuncionRand(int max, int min) {
-
-	return rand() % (max - min) - min;
-};
+int FuncionRand(int max, int min);
 
 string Especialidad_to_string(Especialidad esp);
 

@@ -5,6 +5,7 @@
 #include "cFecha.h"
 #include "enums.h"
 #include "cListaT.h"
+#include "cMedico.h"
 
 
 int main() {

@@ -1,5 +1,6 @@
 #include "cPractica.h"
 #include<sstream>
+#include "cMedico.h"
 
 cPractica::cPractica(cFecha* FyH, cMedico* medico1):cIntervencion(FyH,medico1) {
 	Autorizacion_Obra_social = false;

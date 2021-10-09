@@ -1,7 +1,7 @@
 #pragma once
 #include "cPaciente.h"
 #include "cIntervencion.h"
-#include "cEnfermero.h"
+//#include "cEnfermero.h"
 #include"cMedicamento.h"
 #include"cListaT.h"
 #include<iostream>

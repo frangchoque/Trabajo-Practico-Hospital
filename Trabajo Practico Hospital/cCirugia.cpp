@@ -1,5 +1,8 @@
 #include "cCirugia.h"
 #include<sstream>
+#include "cMedico.h"
+#include "cEnfermero.h"
+
 
 cCirugia::cCirugia( cFecha*FyH,cMedico* medico1,cFecha* alta, cMedico* medicoadicional, cEnfermero* enfermero):cIntervencion(FyH,medico1) {
 	Alta = alta;
