@@ -19,7 +19,5 @@ void cPersonal::Imprimir() {
 
 
 string cPersonal::to_string() {//No se porque marca error. Revisar.
-	return "\nDNI: "+DNI+"\nNombre: "+Nombre+"\n"+"\nSexo: " + Sexo + "\n Fecha de nacimiento: "+ Fecha_nacimiento.tm_to_string_Fecha();
+	return "\nDNI: " + DNI + "\nNombre: " + Nombre + "\n" + "\nSexo: " + Sexo + "\n Fecha de nacimiento: " + Fecha_nacimiento.tm_to_string_Fecha();
 }
-
-

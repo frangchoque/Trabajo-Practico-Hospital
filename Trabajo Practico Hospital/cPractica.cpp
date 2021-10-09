@@ -1,10 +1,11 @@
 #include "cPractica.h"
-#include<sstream>
+#include "cPaciente.h"
 #include "cMedico.h"
+#include<sstream>
 
-cPractica::cPractica(cFecha* FyH, cMedico* medico1):cIntervencion(FyH,medico1) {
+cPractica::cPractica(cFecha FyH, cMedico* medico1) :cIntervencion(FyH, medico1) {
 	Autorizacion_Obra_social = false;
-	Informe = "NADA";
+	Informe = " ";
 }
 
 
@@ -15,8 +16,8 @@ cPractica::~cPractica() {
 
 
 void cPractica::PedirAutorizacion(cPaciente* paciente) {
-	int aux = rand() % 1;
-	if (paciente->getObra()== eObraSocial::CBA)
+	int aux = rand() % 2;
+	if (paciente->getObra() == eObraSocial::CBA || paciente->getObra() == eObraSocial::DEF)
 	{
 		if (aux == 0)
 		{
@@ -27,69 +28,32 @@ void cPractica::PedirAutorizacion(cPaciente* paciente) {
 			Autorizacion_Obra_social = false;
 		}
 	}
-	else if (paciente->getObra() == eObraSocial::DEF)
+
+	else if (paciente->getObra() == eObraSocial::HIG || paciente->getObra() == eObraSocial::OSDE)
 	{
 		if (aux == 0)
 		{
-			Autorizacion_Obra_social = true;
+			Autorizacion_Obra_social = false;
 		}
 		else
 		{
-			Autorizacion_Obra_social = false;
-		}
-	}
-	else if (paciente->getObra() == eObraSocial::HIG)
-	{
-		if (aux == 0)
-		{
 			Autorizacion_Obra_social = true;
 		}
-		else
-		{
-			Autorizacion_Obra_social = false;
-		}
 	}
-	else if (paciente->getObra() == eObraSocial::OSDE)
-	{
-		if (aux == 0)
-		{
-			Autorizacion_Obra_social = true;
-		}
-		else
-		{
-			Autorizacion_Obra_social = false;
-		}
-	}
+
 
 }
 
 
-void cPractica::RealizarIntervencion(cPaciente* paciente) {
-	if (paciente->getProblema() == eProblema::DolorPecho)
+void cPractica::RealizarIntervencion(cPaciente* paciente)
+{
+	if (paciente->getProblema() == eProblema::Problemas_de_Vision)
 	{
-		FechayHora->tm_to_string_Fecha();
-		FechayHora->tm_to_string_Hora();
-		Informe = "Al Paciente: " + paciente->getDNI() + "Se le diagnostico: " + paciente->getProblemaString() + "por el especialista:  " + m_cMedico->getDni();
-
+		Informe = "\nAl Paciente: " + paciente->getDNI() + "se le diagnostico: " + paciente->getProblemaString() + "por el especialista:  " + std::to_string(Medico_Principal->getMatricula());
 	}
-	if (paciente->getProblema() == eProblema::DolorAbdominal)
+	if (paciente->getProblema() == eProblema::COVID)
 	{
-		FechayHora->tm_to_string_Fecha();
-		FechayHora->tm_to_string_Hora();
-		Informe = "Al Paciente: " + paciente->getDNI() + "Se le diagnostico: " + paciente->getProblemaString() + "por el especialista:  " + m_cMedico->getDni();
-
-		if (paciente->getProblema() == eProblema::Problemas_de_Vision)
-		{
-			FechayHora->tm_to_string_Fecha();
-			FechayHora->tm_to_string_Hora();
-			Informe = "Al Paciente: " + paciente->getDNI() + "Se le diagnostico: " + paciente->getProblemaString() + "por el especialista:  " + m_cMedico->getDni();
-		}
-		if (paciente->getProblema() == eProblema::COVID)
-		{
-			FechayHora->tm_to_string_Fecha();
-			FechayHora->tm_to_string_Hora();
-			Informe = "Al Paciente: " + paciente->getDNI() + "Se le diagnostico: " + paciente->getProblemaString() + "por el especialista:  " + m_cMedico->getDni();
-		}
+		Informe = "Al Paciente: " + paciente->getDNI() + "Se le diagnostico: " + paciente->getProblemaString() + "por el especialista:  " + std::to_string(Medico_Principal->getMatricula());
 	}
-
+	Diagnostico = paciente->getProblemaString();
 }

@@ -1,10 +1,11 @@
 #include "cIntervencion.h"
+//#include "cFecha.h"
 
-cIntervencion::cIntervencion(cFecha*FyH,cMedico* medico1) {
+cIntervencion::cIntervencion(cFecha FyH, cMedico* medico1) {
 
-	FechayHora = new cFecha(*FyH);
-	m_cMedico = medico1;
-	Diagnostico = "Todavia no hay diagnostico";
+	FechayHora = FyH;
+	Medico_Principal = medico1;
+	Diagnostico = "";
 	Monto = 0.0;
 }
 
@@ -13,9 +14,6 @@ cIntervencion::cIntervencion(cFecha*FyH,cMedico* medico1) {
 cIntervencion::~cIntervencion() {
 
 }
-
-
-
 
 
 void cIntervencion::Imprimir() {
@@ -29,6 +27,16 @@ void cIntervencion::RealizarIntervencion(cPaciente* paciente) {
 
 
 string cIntervencion::to_string() {
-	string aux = "\nFecha: " + FechayHora->tm_to_string_Fecha() + "\nDiagnostico: " + Diagnostico + "\nMonto: " + std::to_string(Monto);
+	string aux = "\nFecha: " + FechayHora.tm_to_string_Fecha() + "\nDiagnostico: " + Diagnostico + "\nMonto: " + std::to_string(Monto);
 	return aux;
+}
+
+cMedico* cIntervencion::getMedico()
+{
+	return Medico_Principal;
+}
+
+cFecha cIntervencion::getFecha()
+{
+	return FechayHora;
 }

@@ -14,7 +14,7 @@ private:
 	friend class cEnfermero;
 
 public:
-	cMedicamento(string Marca,string Nombre,cFecha*vencimiento);
+	cMedicamento(string Marca, string Nombre, cFecha* vencimiento);
 	~cMedicamento();
 
 	string getNombre() { return Nombre; };
@@ -23,4 +23,5 @@ public:
 	string getID() { return Nombre; };//Para la lista
 
 };
+
 

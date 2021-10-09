@@ -1,7 +1,7 @@
 #include "cMedico.h"
 #include "cHistoriaClinica.h"
 
-cMedico::cMedico(string dni, cFecha fecha, string nom, string sexo,int matricula,eEspecialidad especialidad_e):cPersonal(dni, fecha, nom, sexo), Matricula(matricula) {
+cMedico::cMedico(string dni, cFecha fecha, string nom, string sexo, int matricula, eEspecialidad especialidad_e) :cPersonal(dni, fecha, nom, sexo), Matricula(matricula) {
 	especialidad = especialidad_e;
 	Registro = NULL;
 	Ocupado = false;//esta libre
@@ -11,28 +11,19 @@ cMedico::~cMedico() {
 
 }
 
-void cMedico::AgregarIntervencion() {
-	if (Registro->getPaciente()->getProblema() == Problema::Problemas_de_Vision || Registro->getPaciente()->getProblema() == Problema::COVID)
-	{
-		Registro->AgregarIntervencion(Registro->CrearIntervencion(*(new cFecha()), this, 0));
-	}
-	if (Registro->getPaciente()->getProblema() == Problema::DolorPecho || Registro->getPaciente()->getProblema() == Problema::DolorAbdominal)
-	{
-		Registro->AgregarIntervencion(Registro->CrearIntervencion(*(new cFecha()), this, 2));
-	}
-	if (Registro->getPaciente()->getProblema() == Problema::Tos || Registro->getPaciente()->getProblema() == Problema::Fiebre)
-	{
-		Registro->AgregarIntervencion(Registro->CrearIntervencion(*(new cFecha()), this, 1));
-	}
-	//Practica: Problemas de vision, Covid
+//Practica: Problemas de vision, Covid
 	//Cirugia: Dolor en el pecho, dolor abdominal
 	//Consulta: Tos, fiebre
+void cMedico::AgregarIntervencion(cIntervencion* nuevo)
+{
+	if (nuevo == NULL)
+		throw new exception("Puntero NULL");
+	Registro->AgregarIntervencion(nuevo);
 }
-
 
 void cMedico::DarAlta() {
 	Registro->setAlta();
-	
+
 	Registro = NULL;//El medico deja de estar a cargo del paciente
 
 }
@@ -48,33 +39,34 @@ void cMedico::Internar_paciente() {
 }
 
 
-string cMedico::ModificarIndicaciones() {
-	if (Registro->getPaciente()->getProblema() == Problema::Tos)//Despues cambiarlo a return
+string cMedico::ModificarIndicaciones(Problema problema) {
+	int aux = FuncionRand(2, 0);
+	if (problema == Problema::Tos)//Despues cambiarlo a return
 	{
-		if (FuncionRand(2, 0) == 0)
+		if (aux == 0)
 		{
 			return "\nTomese un descanso y llame si surgen problemas";
 		}
-		if (FuncionRand(2, 0) == 1)
+		else if (aux == 1)
 		{
 			return "\nCompre un antigripal, tome 1 dosis cada 8 horas y tomese la temperatura cada 12";
 		}
-		if (FuncionRand(2, 0) == 2)
+		else
 		{
 			return "\nPongase en cuarentena e informe sobre la evolucion de la enfermedad.";
 		}
 	}
-	if (Registro->getPaciente()->getProblema() == Problema::Fiebre)
+	if (problema == Problema::Fiebre)
 	{
-		if (FuncionRand(2, 0) == 0)
+		if (aux == 0)
 		{
 			return "\nDuerma y tome agua";
 		}
-		if (FuncionRand(2, 0) == 1)
+		else if (aux == 1)
 		{
 			return "\nTomese un ibuprofeno 400mg";
 		}
-		if (FuncionRand(2, 0) == 2)
+		else
 		{
 			return "\nSientese y espere, le vamos a inyectar un tranquilizante";
 		}
@@ -99,3 +91,22 @@ string cMedico::getEspecialidad()
 {
 	return Especialidad_to_string(especialidad);
 }
+
+void cMedico::setHistoriaClinica(cHistoriaClinica* registro)
+{
+	Ocupado = true;//Porque le asigno un registro para que trabaje
+	Registro = registro;
+	if (registro == NULL)
+		Ocupado = false;
+}
+
+void cMedico::setInternado()
+{
+	Registro->setInternado();
+}
+
+void cMedico::setAlta()
+{
+	Registro->setAlta();
+}
+

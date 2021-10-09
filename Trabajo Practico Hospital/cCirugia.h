@@ -4,34 +4,34 @@
 //#include "cEnfermero.h"
 #include"cMedicamento.h"
 #include"cListaT.h"
-#include<iostream>
-using namespace std;
+//#include "cPersonal.h"
+class cEnfermero;
 
 class cCirugia :
-    public cIntervencion
+	public cIntervencion
 {
 private:
-	cFecha* Alta;
 	bool Ambulatoria;
-	int Duracion;
-	cFecha* Fecha_Hora_inicio;
+	unsigned int Duracion;//Minutos
+	cFecha Fecha_Hora_inicio;
+	cFecha Fecha_Alta;
 	string Nombre_Procedimiento;
 	cMedico* MedicoAdicional;
 	cEnfermero* Enfermero;
-	ListaT<cMedicamento> medicamento; 
+	ListaT<cMedicamento>* Inventario;
 public:
 	//constructor
-	cCirugia(cFecha*FyH ,cMedico* medico1,cFecha*alta,cMedico*medicoadicional,cEnfermero*enfermero);
-	virtual ~cCirugia();
+	cCirugia(cMedico* medico1, cMedico* medicoadicional, cEnfermero* enfermero, cFecha FyH, bool ambulatoria = false);
+	~cCirugia();
 
 
 	void Prequirurgico(cPaciente* paciente); // Asegura si el paciente puede ser intervenido o no 
 	void RealizarIntervencion(cPaciente* paciente); //interviene al paciente
 
-	//Getter del medicamento
-	int getDuracion() { return Duracion; };
 
-	
+	int getDuracion() { return Duracion; };
+	void setAmbulatoria(bool ambulatoria) { Ambulatoria = ambulatoria; };
+
 	//imprimir
 
 	string to_string();
@@ -39,4 +39,3 @@ public:
 
 
 };
-

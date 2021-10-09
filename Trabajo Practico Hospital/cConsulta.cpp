@@ -1,10 +1,11 @@
 #include "cConsulta.h"
-
+#include "cPaciente.h"
+#include "cMedico.h"
 #include<sstream>
 
 
-cConsulta::cConsulta(cFecha* FyH, cMedico* medico):cIntervencion(FyH,medico) {
-	Indicaciones = "Todavia no hay indicaciones";
+cConsulta::cConsulta(cFecha FyH, cMedico* medico) :cIntervencion(FyH, medico) {
+	Indicaciones = "";
 }
 
 cConsulta::~cConsulta() {
@@ -12,36 +13,18 @@ cConsulta::~cConsulta() {
 }
 
 void cConsulta::RealizarIntervencion(cPaciente* paciente) {
-	if (paciente->getProblema() == eProblema::DolorPecho)
+
+	if (paciente->getProblema() == eProblema::Tos)
 	{
-		FechayHora->tm_to_string_Fecha();
-		FechayHora->tm_to_string_Hora();
-		Indicaciones = "Necesita realizarse un electrograma , Analisis de Sangre y Radiografia de torax";
-		Monto = 100.0;
-		
+		Indicaciones = Medico_Principal->ModificarIndicaciones(paciente->getProblema());
+		Monto = FuncionRand(3000, 500);
 	}
-	if (paciente->getProblema() == eProblema::DolorAbdominal)
+	if (paciente->getProblema() == eProblema::Fiebre)
 	{
-		FechayHora->tm_to_string_Fecha();
-		FechayHora->tm_to_string_Hora();
-		Indicaciones = "Necesita realizarse un ecografia Abdominal";
-		Monto = 100.0;
+		Indicaciones = Medico_Principal->ModificarIndicaciones(paciente->getProblema());
+		Monto = FuncionRand(2000, 500);
 	}
-	if (paciente->getProblema() == eProblema::Problemas_de_Vision)
-	{
-		FechayHora->tm_to_string_Fecha();
-		FechayHora->tm_to_string_Hora();
-		Indicaciones = "Necesita ir a un oftalmologo";
-		Monto = 100.0;
-	}
-	if (paciente->getProblema() == eProblema::COVID)
-	{
-		FechayHora->tm_to_string_Fecha();
-		FechayHora->tm_to_string_Hora();
-		Indicaciones = "Necesita ser hospitalizado inmediatamente";
-		Monto = 100.0;
-	}
-	
+
 }
 
 string cConsulta::to_string() {
@@ -55,6 +38,6 @@ string cConsulta::to_string() {
 }
 
 void cConsulta::Imprimir() {
-	string imprimir = ((cIntervencion*)this)->to_string()+ this->to_string();
-	cout << imprimir<<endl;
+	string imprimir = ((cIntervencion*)this)->to_string() + this->to_string();
+	cout << imprimir << endl;
 }

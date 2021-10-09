@@ -1,21 +1,23 @@
 #pragma once
 //#include "cMedico.h"
-#include <string>
-#include "cFecha.h"
 class cPaciente;
 class cMedico;
+#include <string>
+#include "cFecha.h"
+//class cFecha;
+
 using namespace std;
 
 class cIntervencion
 {
 protected:
 	string Diagnostico;
-	cFecha* FechayHora;
+	cFecha FechayHora;
 	float Monto;
-	cMedico* m_cMedico;
+	cMedico* Medico_Principal;
 
 public:
-	cIntervencion(cFecha* FyH, cMedico* medico1);
+	cIntervencion(cFecha FyH, cMedico* medico1);
 	virtual ~cIntervencion();
 
 
@@ -23,10 +25,10 @@ public:
 	virtual void RealizarIntervencion(cPaciente* paciente) = 0;
 	string to_string();
 	float getMonto() { return Monto; }
-	cMedico* getMedico() { return m_cMedico; }
-	cFecha* getFecha() { return FechayHora; }
+	cMedico* getMedico();
+	cFecha getFecha();
 	string getID() { return "Algo"; };//No es necesario en la lista
-	int getMes() { return FechayHora->getMes(); };
-	void setMedico(cMedico* _medico) { m_cMedico = _medico; };
+
 };
+
 

@@ -1,9 +1,7 @@
 #pragma once
 #include "cIntervencion.h"
-#include"cPaciente.h"
-
 class cPractica :
-    public cIntervencion
+	public cIntervencion
 {
 
 private:
@@ -11,13 +9,13 @@ private:
 	string Informe;
 
 public:
-	cPractica(cFecha* FyH, cMedico* medico1);
+	cPractica(cFecha FyH, cMedico* medico1);
 	~cPractica();
 
 
 	void PedirAutorizacion(cPaciente* paciente);
 	void RealizarIntervencion(cPaciente* paciente);
-	
+
 
 };
 

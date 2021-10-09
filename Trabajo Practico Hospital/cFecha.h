@@ -15,7 +15,7 @@ public:
 	cFecha(int d, int m, int a, int h, int min);
 
 	//cambia la fecha a fecha actual
-	//void setHoy(); no se si la vamos a usar
+	//void setHoy(); //no se si la vamos a usar
 	void ImprimirFecha();
 	void ImprimirHora();
 	string tm_to_string_Fecha();
@@ -23,14 +23,14 @@ public:
 	int getDia();
 	int getMes();
 	int getAnio();
-	bool CompararFecha(cFecha* fecha1,cFecha* fecha2);//return true si son iguales
+	bool CompararFecha(cFecha fecha1, cFecha fecha2);//return true si son iguales
 	~cFecha();
 	//int CalcularEdad(cFecha* nacimiento);
 	void SetHoy();
 	void setHora(int num);
-    int getHora();
-	void setFecha(int dia, int mes, int anio, int Hora);
-	
+	int getHora();
+	void setFecha(int dia, int mes, int anio);
 
+	//~cFecha();
 };
 

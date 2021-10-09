@@ -7,11 +7,11 @@
 
 using namespace std;
 class cEnfermero :
-    public cPersonal
+	public cPersonal
 {
 
 public:
-	cEnfermero(string dni, cFecha fecha, string nom, string sexo,bool turno);
+	cEnfermero(string dni, cFecha fecha, string nom, string sexo, bool turno);
 	~cEnfermero();
 	string GenerarMatricula();
 	void AdministrarMedicamento(cMedicamento* medicamento);
@@ -28,4 +28,5 @@ private:
 
 	static ListaT<cMedicamento>* Inventario;//Hago una lista static para que todos los enfermeros pueden acceder a ella
 };
+
 
