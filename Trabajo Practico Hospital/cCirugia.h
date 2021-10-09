@@ -4,6 +4,8 @@
 #include "cEnfermero.h"
 #include"cMedicamento.h"
 #include"cListaT.h"
+#include<iostream>
+using namespace std;
 
 class cCirugia :
     public cIntervencion
@@ -19,7 +21,7 @@ private:
 	ListaT<cMedicamento> medicamento; 
 public:
 	//constructor
-	cCirugia(cMedico* medico1,cFecha*alta,cMedico*medicoadicional,cEnfermero*enfermero);
+	cCirugia(cFecha*FyH ,cMedico* medico1,cFecha*alta,cMedico*medicoadicional,cEnfermero*enfermero);
 	virtual ~cCirugia();
 
 
@@ -27,7 +29,6 @@ public:
 	void RealizarIntervencion(cPaciente* paciente); //interviene al paciente
 
 	//Getter del medicamento
-	cMedicamento* getmedicamento() { return medicamento; };
 	int getDuracion() { return Duracion; };
 
 	

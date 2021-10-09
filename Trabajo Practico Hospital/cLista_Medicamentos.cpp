@@ -10,4 +10,9 @@ void cLista_Medicamentos::AgregarMedicamento(cMedicamento* remedio)
 	Agregar(remedio);
 }
 
+string cLista_Medicamentos::getmedicamento(cMedicamento* remedio)
+{
+	return remedio->getNombre();
+}
+
 

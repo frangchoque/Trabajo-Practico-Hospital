@@ -49,10 +49,6 @@ void cHistoriaClinica::Imprimir_Intervenciones(cFecha* fecha)
 	}
 }
 
-
-
-
-
 void cHistoriaClinica::AgregarIntervencion(cIntervencion* nueva_intervencion)
 {
 	L_intervenciones->Agregar(nueva_intervencion); 

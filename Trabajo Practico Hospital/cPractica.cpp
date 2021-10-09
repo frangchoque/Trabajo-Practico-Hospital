@@ -14,8 +14,8 @@ cPractica::~cPractica() {
 
 
 void cPractica::PedirAutorizacion(cPaciente* paciente) {
-	int aux = rand % 1;
-	if (paciente->getObra() == eObraSocial::CBA)
+	int aux = rand() % 1;
+	if (paciente->getObra()== eObraSocial::CBA)
 	{
 		if (aux == 0)
 		{
@@ -68,27 +68,27 @@ void cPractica::RealizarIntervencion(cPaciente* paciente) {
 	{
 		FechayHora->tm_to_string_Fecha();
 		FechayHora->tm_to_string_Hora();
-		Informe = "Al Paciente: " << paciente->getDNI() << "Se le diagnostico: " << paciente->getProblemaString() << "por el especialista:  " <<m_cMedico->getMatricula()<< endl;
+		Informe = "Al Paciente: " + paciente->getDNI() + "Se le diagnostico: " + paciente->getProblemaString() + "por el especialista:  " + m_cMedico->getDni();
 
 	}
 	if (paciente->getProblema() == eProblema::DolorAbdominal)
 	{
 		FechayHora->tm_to_string_Fecha();
 		FechayHora->tm_to_string_Hora();
-		Informe = "Al Paciente: " << paciente->getDNI() << "Se le diagnostico: " << paciente->getProblemaString() << "por el especialista:  " << m_cMedico->getMatricula() << endl;
+		Informe = "Al Paciente: " + paciente->getDNI() + "Se le diagnostico: " + paciente->getProblemaString() + "por el especialista:  " + m_cMedico->getDni();
 
-	if (paciente->getProblema() == eProblema::Problemas_de_Vision)
-	{
-		FechayHora->tm_to_string_Fecha();
-		FechayHora->tm_to_string_Hora();
-		Informe = "Al Paciente: " << paciente->getDNI() << "Se le diagnostico: " << paciente->getProblemaString() << "por el especialista:  " << m_cMedico->getMatricula() << endl;
+		if (paciente->getProblema() == eProblema::Problemas_de_Vision)
+		{
+			FechayHora->tm_to_string_Fecha();
+			FechayHora->tm_to_string_Hora();
+			Informe = "Al Paciente: " + paciente->getDNI() + "Se le diagnostico: " + paciente->getProblemaString() + "por el especialista:  " + m_cMedico->getDni();
+		}
+		if (paciente->getProblema() == eProblema::COVID)
+		{
+			FechayHora->tm_to_string_Fecha();
+			FechayHora->tm_to_string_Hora();
+			Informe = "Al Paciente: " + paciente->getDNI() + "Se le diagnostico: " + paciente->getProblemaString() + "por el especialista:  " + m_cMedico->getDni();
+		}
 	}
-	if (paciente->getProblema() == eProblema::COVID)
-	{
-		FechayHora->tm_to_string_Fecha();
-		FechayHora->tm_to_string_Hora();
-		Informe = "Al Paciente: " << paciente->getDNI() << "Se le diagnostico: " << paciente->getProblemaString() << "por el especialista:  " << m_cMedico->getMatricula() << endl;
-}
-
 
 }

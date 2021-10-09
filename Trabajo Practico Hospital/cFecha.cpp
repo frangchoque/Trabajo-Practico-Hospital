@@ -54,7 +54,6 @@ int cFecha::getAnio()
 {
 	return fecha.tm_year;
 }
-
 bool cFecha::CompararFecha(cFecha* fecha1, cFecha* fecha2)
 {
 	if (fecha1->getDia() == fecha2->getDia() && fecha1->getMes() == fecha2->getMes() && fecha1->getAnio() == fecha2->getAnio()) { return true; }
@@ -64,6 +63,7 @@ cFecha::~cFecha()
 {
 
 }
+
 /*int cFecha::CalcularEdad(cFecha* nacimiento)
 {
 	int dif = 0;
@@ -81,10 +81,7 @@ cFecha::~cFecha()
 	if (anio > aux->tm_year) { return -1;}
 
 }*/
-//cFecha::~cFecha()
-//{
-//}
-//;
+
 
 void cFecha::SetHoy()
 {
@@ -104,6 +101,18 @@ int cFecha::getHora()
 {
 	return fecha.tm_hour;
 }
+
+void cFecha::setFecha(int dia, int mes, int anio, int Hora)
+{
+	fecha.tm_mday = dia;
+	fecha.tm_mon = mes;
+	fecha.tm_year = anio;
+	fecha.tm_hour = Hora;
+}
+
+
+
+
 
 
 

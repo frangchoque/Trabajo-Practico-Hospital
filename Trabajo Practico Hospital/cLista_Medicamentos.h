@@ -6,6 +6,7 @@ class cLista_Medicamentos:
 {
 	cLista_Medicamentos(unsigned int tam);
 	void AgregarMedicamento(cMedicamento*remedio);
+	string getmedicamento(cMedicamento* remedio);
 	
 };
 

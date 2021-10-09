@@ -24,6 +24,7 @@ public:
 	void setOcupado(bool var) { Ocupado = var; };
 	unsigned int getMatricula() { return Matricula; }
 	cHistoriaClinica* getRegistro() { return Registro; }
+	string getDni() { return DNI; };
 private:
 	eEspecialidad especialidad;
 	const unsigned int Matricula;

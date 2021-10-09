@@ -1,5 +1,7 @@
 #pragma once
 #include "cIntervencion.h"
+#include"cPaciente.h"
+
 class cPractica :
     public cIntervencion
 {

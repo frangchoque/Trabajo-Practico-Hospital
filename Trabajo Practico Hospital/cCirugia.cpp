@@ -1,7 +1,7 @@
 #include "cCirugia.h"
 #include<sstream>
 
-cCirugia::cCirugia( cMedico* medico1,cFecha* alta, cMedico* medicoadicional, cEnfermero* enfermero):cIntervencion(FyH,medico1) {
+cCirugia::cCirugia( cFecha*FyH,cMedico* medico1,cFecha* alta, cMedico* medicoadicional, cEnfermero* enfermero):cIntervencion(FyH,medico1) {
 	Alta = alta;
 	Fecha_Hora_inicio = new cFecha();
 	Duracion = FuncionRand(1,6);
@@ -9,7 +9,6 @@ cCirugia::cCirugia( cMedico* medico1,cFecha* alta, cMedico* medicoadicional, cEn
 	Nombre_Procedimiento = "NADA";
 	MedicoAdicional = medicoadicional;
 	Enfermero = enfermero;
-	
 }
 
 cCirugia::~cCirugia() {
@@ -55,10 +54,9 @@ void cCirugia::Prequirurgico(cPaciente* paciente) {
 	
 }
 
-
 void cCirugia::RealizarIntervencion(cPaciente* paciente) {
 	eProblema problema = paciente->getProblema();    //Nos copiamos el problema del paciente a una variable Problema 
-
+	
 	if (Ambulatoria == false)
 	{
 		//Dependiendo del problema del paciente se le realizara un procedimiento quirurgico
@@ -68,8 +66,8 @@ void cCirugia::RealizarIntervencion(cPaciente* paciente) {
 			Nombre_Procedimiento = "Cirugia de bypass";
 			Fecha_Hora_inicio->tm_to_string_Fecha();
 			Fecha_Hora_inicio->tm_to_string_Hora();
-			Fecha_Hora_inicio->setHora(Duracion);
-			Alta = Fecha_Hora_inicio->tm_to_string_Fecha() + Fecha_Hora_inicio->getHora();
+		   // Fecha_Hora_inicio->setHora(Duracion);
+			Alta->setFecha(Fecha_Hora_inicio->getDia()+1, Fecha_Hora_inicio->getMes(), Fecha_Hora_inicio->getAnio(), Fecha_Hora_inicio->getHora()+Duracion);
 			Monto = 500.0;
 			cout << m_cMedico->getMatricula() << " " << " esta atendiendo al paciente " << paciente->NumeroAfiliado() << " " << endl;
 			m_cMedico->setOcupado(true);
@@ -94,7 +92,7 @@ void cCirugia::RealizarIntervencion(cPaciente* paciente) {
 			Fecha_Hora_inicio->tm_to_string_Fecha();
 			Fecha_Hora_inicio->tm_to_string_Hora();
 			Fecha_Hora_inicio->setHora(Duracion);
-			Alta = Fecha_Hora_inicio->tm_to_string_Fecha() + Fecha_Hora_inicio->getHora();
+			Alta->setFecha(Fecha_Hora_inicio->getDia() + 1, Fecha_Hora_inicio->getMes(), Fecha_Hora_inicio->getAnio(), Fecha_Hora_inicio->getHora() + Duracion);
 			Monto = 700.0;
 			cout << m_cMedico->getMatricula() << " " << " esta atendiendo al paciente " << paciente->NumeroAfiliado() << " " << endl;
 			m_cMedico->setOcupado(true);
@@ -117,7 +115,7 @@ void cCirugia::RealizarIntervencion(cPaciente* paciente) {
 			Fecha_Hora_inicio->tm_to_string_Fecha();
 			Fecha_Hora_inicio->tm_to_string_Hora();
 			Fecha_Hora_inicio->setHora(Duracion);
-			Alta = Fecha_Hora_inicio->tm_to_string_Fecha() + Fecha_Hora_inicio->getHora();
+			Alta->setFecha(Fecha_Hora_inicio->getDia() + 1, Fecha_Hora_inicio->getMes(), Fecha_Hora_inicio->getAnio(), Fecha_Hora_inicio->getHora() + Duracion);
 			Monto = 300.0;
 			cout << m_cMedico->getMatricula() << " " << " esta atendiendo al paciente " << paciente->NumeroAfiliado() << " " << endl;
 			m_cMedico->setOcupado(true);
@@ -142,7 +140,7 @@ void cCirugia::RealizarIntervencion(cPaciente* paciente) {
 			Fecha_Hora_inicio->tm_to_string_Fecha();
 			Fecha_Hora_inicio->tm_to_string_Hora();
 			Fecha_Hora_inicio->setHora(Duracion);
-			Alta = Fecha_Hora_inicio->tm_to_string_Fecha() + Fecha_Hora_inicio->getHora();
+			Alta->setFecha(Fecha_Hora_inicio->getDia() + 1, Fecha_Hora_inicio->getMes(), Fecha_Hora_inicio->getAnio(), Fecha_Hora_inicio->getHora() + Duracion);
 			Monto = 1000.0;
 			cout << m_cMedico->getMatricula() << " " << " esta atendiendo al paciente " << paciente->NumeroAfiliado() << " " << endl;
 			m_cMedico->setOcupado(true);
@@ -162,7 +160,6 @@ void cCirugia::RealizarIntervencion(cPaciente* paciente) {
 	}
 
 }
-
 
 string cCirugia::to_string() {
 

@@ -1,5 +1,5 @@
 #include "cConsulta.h"
-#include "cPaciente.h"
+
 #include<sstream>
 
 

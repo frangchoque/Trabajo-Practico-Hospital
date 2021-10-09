@@ -29,7 +29,8 @@ public:
 	void SetHoy();
 	void setHora(int num);
     int getHora();
+	void setFecha(int dia, int mes, int anio, int Hora);
+	
 
-	//~cFecha();
 };
 
